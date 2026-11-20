@@ -1,0 +1,44 @@
+# Changelog
+
+All notable changes to this project. Dates are local (KST).
+
+## [1.1.0] — 2026-11-20
+
+### Added
+- Consolidated repository: the app, the method, the print templates and the reference database now live in one place.
+- `docs/` set: overview, method, legend, rollout, app guide, architecture, data model, Telegram setup, operations, scaling, decision log.
+- `templates/` with the A4 OPEN sheet and the A4 kick-off grid (HTML + PDF), both with a **Names** box that saves the team list in the browser.
+- `reference/personal_log.sample.db` — 302-entry sample, no live data.
+- `config.example.json` — the config shape with empty secrets.
+- `docs/03-first-two-weeks.md`: a day-by-day rollout with recovery rules.
+
+### Changed
+- Kick-off grid moved from A5 to **A4 portrait** (only A4 is available on site).
+- `06-TELEGRAM-SETUP.md` now documents the 24-hour queue limit, photo captions and the `allowed_chat_ids` lock.
+- Legend examples rewritten from the **20.11 whiteboard**, with corrected names (Aras, Seong, Chang, Anto) and `0-T?` documented as the cabinet-keys request.
+- `.gitignore` now excludes all of `data/` except a placeholder, plus `.ruff_cache`.
+
+## [1.0.0] — 2026-11-19
+
+### Added
+- **Inbox** — Telegram text/photo capture, stored in a new `inbox` table, triaged into entries from the UI.
+- **Telegram long-polling** service (`backend/services/telegram.py`), configured in Settings, no public URL needed.
+- **Today** view: today's entries, due/stale items, one-line quick add.
+- **Follow-up** view: open commitments grouped by owner, with overdue / stale / orphan / waiting flags, copyable nudges, snooze and close, and a **handover export**.
+- `owner`, `next_check` and `area` columns on `log_entries`, with guarded startup migrations.
+- `meta` table for the Telegram offset (no duplicate imports after restart).
+- Weekly report prompt rewritten to the Commissioning Manager's format: Key Activities / Tasks Progress / Critical path / Week outlook / Resourcing & people, fed with all open and stale commitments.
+- Frontend: sidebar entries, inbox badge, dashboard counters, owner/next-check/area in the entry forms.
+
+### Changed
+- `follow_up` is now the human note; `owner` is the machine field. TODO = mine, TASK = theirs.
+- Dashboard counts open / overdue / stale / unowned separately from kanban status.
+
+### Fixed
+- `update_entry` can now clear `owner`, `next_check`, `area`, `eta` and `follow_up`.
+- SQLite migration order: indexes on new columns are created after the `ALTER TABLE` statements.
+
+## [0.9.0] — 2026-07 → 2026-11 (baseline)
+
+- Single-user log app: LOG/TODO/TASK, kanban, tags, AI analysis, RAG chat, compaction, Excel import/export, database backup/restore.
+- 303 entries logged between 27 July and 19 November 2026 — the baseline this system was designed against.
