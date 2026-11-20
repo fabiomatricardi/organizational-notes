@@ -84,6 +84,15 @@ run-prod.bat          launch the built .exe
 | [`CHANGELOG.md`](CHANGELOG.md) | What changed, when |
 | [`ROADMAP.md`](ROADMAP.md) | Now / next / later |
 
+### Print-ready A4
+
+| Document | File |
+|---|---|
+| Legend and worked examples | [`docs/print/02-legend-and-examples.pdf`](docs/print/02-legend-and-examples.pdf) |
+| First two weeks, step by step | [`docs/print/03-first-two-weeks.pdf`](docs/print/03-first-two-weeks.pdf) |
+
+Black, white and grey only; A4; no dependencies. Rebuild after editing the Markdown with `python tools/build_print.py` (Edge is used headless for the PDF).
+
 ## Data, secrets, backup
 
 - **`data/personal_log.db`** — the only source of truth. SQLite, WAL mode. Gitignored.

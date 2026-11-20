@@ -11,6 +11,7 @@ All notable changes to this project. Dates are local (KST).
 - `reference/personal_log.sample.db` — 302-entry sample, no live data.
 - `config.example.json` — the config shape with empty secrets.
 - `docs/03-first-two-weeks.md`: a day-by-day rollout with recovery rules.
+- Print pipeline (`tools/build_print.py` + `tools/print.css`) and print-ready A4 PDFs for the legend and the rollout: `docs/print/`.
 
 ### Changed
 - Kick-off grid moved from A5 to **A4 portrait** (only A4 is available on site).

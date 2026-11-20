@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Legend and worked examples</title>
+<style>
+/* Print stylesheet for the organizational-notes documents.
+   Black, white and grey only - safe on any mono laser printer. */
+
+@page {
+  size: A4;
+  margin: 17mm 16mm 20mm;
+}
+
+:root {
+  --ink: #111111;
+  --ink-soft: #3c3c3c;
+  --grey: #6f6f6f;
+  --grey-light: #b9b9b9;
+  --rule: #cfcfcf;
+  --wash: #f4f4f4;
+  --wash-2: #fafafa;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-size: 9.6pt;
+  line-height: 1.44;
+  color: var(--ink);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ---------- cover / masthead ---------- */
+
+.masthead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10mm;
+  border-bottom: 1.4pt solid var(--ink);
+  padding-bottom: 4mm;
+  margin-bottom: 2.5mm;
+}
+
+.kicker {
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 4mm;
+}
+
+h1 {
+  font-size: 23pt;
+  line-height: 1.06;
+  letter-spacing: -0.018em;
+  font-weight: 800;
+  margin: 0 0 3mm;
+}
+
+.deck {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 11.2pt;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  max-width: 128mm;
+  margin: 0;
+}
+
+.bignum {
+  font-size: 62pt;
+  line-height: 0.78;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #e4e4e4;
+  flex-shrink: 0;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 7pt;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 7mm;
+}
+
+/* ---------- headings ---------- */
+
+h2 {
+  counter-increment: section;
+  display: flex;
+  align-items: baseline;
+  gap: 3mm;
+  font-size: 13pt;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  margin: 7.5mm 0 3mm;
+  padding-bottom: 1.8mm;
+  border-bottom: 0.7pt solid var(--ink);
+  break-after: avoid;
+}
+
+h2::before {
+  content: counter(section, decimal-leading-zero);
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--grey);
+  flex-shrink: 0;
+}
+
+body { counter-reset: section; }
+
+h3 {
+  font-size: 10.2pt;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin: 6mm 0 2mm;
+  break-after: avoid;
+}
+
+h3::before {
+  content: "";
+  display: inline-block;
+  width: 2.4mm;
+  height: 2.4mm;
+  background: var(--ink);
+  margin-right: 2.4mm;
+  vertical-align: 0.2mm;
+}
+
+/* ---------- text ---------- */
+
+p { margin: 0 0 3mm; orphans: 2; widows: 2; }
+
+p.note {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  color: var(--grey);
+  font-size: 9.6pt;
+}
+
+strong { font-weight: 700; }
+
+a { color: inherit; text-decoration: none; border-bottom: 0.4pt dotted var(--grey); }
+
+code {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 8.7pt;
+  color: var(--ink);
+  word-break: break-word;
+}
+
+hr {
+  border: 0;
+  border-top: 0.5pt solid var(--rule);
+  margin: 6mm 0;
+}
+
+/* ---------- lists ---------- */
+
+ul, ol { margin: 0 0 3.5mm; padding-left: 5.5mm; }
+
+li { margin-bottom: 1.4mm; break-inside: avoid; }
+
+ul li::marker { color: var(--grey-light); }
+
+li.task {
+  list-style: none;
+  margin-left: -5.5mm;
+  padding-left: 7mm;
+  position: relative;
+}
+
+li.task .box {
+  position: absolute;
+  left: 0;
+  top: 0.55mm;
+  width: 3.4mm;
+  height: 3.4mm;
+  border: 0.7pt solid var(--ink);
+}
+
+/* ---------- tables ---------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2mm 0 4mm;
+  font-size: 8.7pt;
+  line-height: 1.36;
+  break-inside: auto;
+}
+
+thead { display: table-header-group; }
+
+tr { break-inside: avoid; }
+
+thead th {
+  text-align: left;
+  font-size: 6.8pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: var(--wash);
+  padding: 1.8mm 2.4mm;
+  border-bottom: 0.8pt solid var(--ink);
+  vertical-align: bottom;
+}
+
+tbody td {
+  padding: 1.9mm 2.4mm;
+  border-bottom: 0.4pt solid var(--rule);
+  vertical-align: top;
+}
+
+tbody tr:nth-child(even) td { background: var(--wash-2); }
+
+tbody tr:last-child td { border-bottom: 0.8pt solid var(--ink); }
+
+/* map tables: "what the board says" vs "what you write" */
+
+table.map td:first-child {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  color: var(--grey);
+  width: 44%;
+}
+
+table.map td:last-child {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 8.4pt;
+}
+
+/* marks table */
+
+table.marks td:first-child {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 17pt;
+  line-height: 1;
+  text-align: center;
+  width: 11mm;
+  padding-top: 1.6mm;
+}
+
+table.marks td:nth-child(2) { width: 40%; }
+table.marks td:nth-child(3) { font-family: Georgia, serif; font-style: italic; color: var(--ink-soft); }
+
+/* app-mapping table: mark in mono */
+
+table.app td:first-child {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 10pt;
+  text-align: center;
+  width: 14mm;
+}
+
+/* ---------- callouts ---------- */
+
+.callout {
+  background: var(--wash);
+  border-left: 2.2pt solid var(--ink);
+  padding: 3mm 3.6mm;
+  margin: 3.5mm 0 4mm;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10.4pt;
+  line-height: 1.45;
+  break-inside: avoid;
+}
+
+.callout strong { font-family: "Segoe UI", Arial, sans-serif; font-size: 8pt; letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 1.2mm; }
+
+blockquote {
+  margin: 5mm 0;
+  padding: 5mm 6mm;
+  border-top: 0.8pt solid var(--ink);
+  border-bottom: 0.8pt solid var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11pt;
+  line-height: 1.45;
+  break-inside: avoid;
+}
+
+blockquote p { margin: 0; }
+
+/* ---------- notes area ---------- */
+
+.notes {
+  margin-top: 9mm;
+  break-inside: avoid;
+}
+
+.notes-label {
+  font-size: 6.6pt;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 2.5mm;
+}
+
+.rule-line {
+  height: 8.6mm;
+  border-bottom: 0.4pt solid #dedede;
+}
+
+/* ---------- colophon ---------- */
+
+.colophon {
+  margin-top: 9mm;
+  padding-top: 1.8mm;
+  border-top: 0.5pt solid var(--rule);
+  font-size: 6.6pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grey);
+  display: flex;
+  justify-content: space-between;
+  break-inside: avoid;
+}
+
+/* ---------- page control ---------- */
+
+.newpage { break-before: page; }
+
+section { break-inside: auto; }
+
+@media screen {
+  body { max-width: 210mm; margin: 10mm auto; background: #fff; box-shadow: 0 2mm 8mm rgba(0,0,0,.12); padding: 17mm 16mm 20mm; }
+}
+
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div>
+    <div class="kicker">Organizational notes · Reference 02</div>
+    <h1>Legend and worked examples</h1>
+    <p class="deck">Six marks, three real boards, and the anti-patterns that create ghosts.</p>
+  </div>
+  <div class="bignum">02</div>
+</header>
+<div class="meta">
+  <span>v1.1 · 2026-11-20 · A4 · black &amp; white</span>
+  <span>organizational-notes · fabiomatricardi</span>
+</div>
+
+<p class="note">Print this and keep it on the clipboard, or stick it inside the front of the A5.</p>
+<h2>The six marks</h2>
+<table class="marks"><thead><tr><th>Mark</th><th>Write it when</th><th>Shape of the line</th></tr></thead><tbody><tr><td><code>•</code></td><td>something happened or was decided</td><td>what + so what</td></tr><tr><td><code>→</code></td><td><strong>you</strong> must do something</td><td>verb + object + date</td></tr><tr><td><code>⇒</code></td><td><strong>someone else</strong> must do something</td><td>name + verb + object + date</td></tr><tr><td><code>?</code></td><td>you are waiting, or nobody answered</td><td>question + who + since when</td></tr><tr><td><code>!</code></td><td>risk, issue, escalation</td><td>risk + consequence + date it bites</td></tr><tr><td><code>✓</code></td><td>it is finished</td><td>cross the line on the A4</td></tr></tbody></table>
+<p>Plus <code>@name</code> at the start when the line is about a person (a commitment, an ask, a personal note).</p>
+<div class="callout"><strong>Test for a good line:</strong> a stranger reading it next Friday knows <em>who</em> does <em>what</em> by <em>when</em>. If not, rewrite it in five more seconds.</div>
+<h2>Today&#x27;s board (20.11) → the register</h2>
+<p>Names as written on the board: <strong>Aras</strong> (not &quot;Aros&quot;), <strong>Seong</strong> (not &quot;Serg&quot;), <strong>Chang</strong>, <strong>Lee</strong>, <strong>Kim</strong>, <strong>HJL</strong>, <strong>Kong</strong>, <strong>Rama</strong>. The circled <code>0-T?</code> is the <strong>keys</strong> for the technical-room cabinets — it is a waiting item, not a status.</p>
+<table class="map"><thead><tr><th>On the board</th><th>Written as</th></tr></thead><tbody><tr><td><code>Flash upgrade PLAN 10:30 Room 11 (CHTL)</code></td><td><code>• Flash upgrade plan briefed 10:30, Room 11 (CHTL)</code></td></tr><tr><td><code>SDV-SAT ✓</code> · <code>1 client licence Q19 ✓ + UAP ICSS</code></td><td><code>✓ SDV-SAT</code> · <code>✓ 1 client licence Q19 + UAP ICSS</code></td></tr><tr><td><code>AMS test run (Tuesday 24.11) — SHI to provide TRX name</code></td><td><code>→ AMS test run — Tue 24.11</code> + <code>⇒ SHI: TRX name for AMS test run — before Tue 24.11</code></td></tr><tr><td><code>Modbus comm (ECS)</code></td><td><code>⇒ Yang Zheng: Modbus comm ECS — date TBC</code></td></tr><tr><td><code>quality of B-ITR submission → Monday 23 13:00</code></td><td><code>→ review B-ITR submission quality — Mon 23.11 13:00</code></td></tr><tr><td><code>H2 and O2 sensors material receiving (SHI)</code></td><td><code>? H2/O2 sensors material from SHI — no date</code></td></tr><tr><td><code>CSU Room from Monday — submit PTW by today (Aras)</code></td><td><code>⇒ Aras: CSU room PTW — today 20.11</code></td></tr><tr><td><code>LUN schedule 23-11-2026 9:00 — Aras / Chang</code> (FIR) and <code>LUN schedule — Aras / Seong / Anto</code> (AIR)</td><td><code>⇒ Aras: LUN walkdown FIR + AIR — 23.11 09:00 (Chang, Seong support)</code></td></tr><tr><td><code>BICC check — Kim + HJL AC PDP</code> and <code>BICC check (Lee)</code></td><td><code>⇒ Kim / HJL: BICC check AC PDP</code> + <code>⇒ Lee: BICC check AIR</code></td></tr><tr><td><code>afternoon DCS check</code></td><td><code>→ DCS check — this afternoon</code></td></tr><tr><td><code>W48 TPC OWS desk+chair</code> (written in <strong>both</strong> FIR and AIR)</td><td><code>⇒ Aras: W48 TPC OWS desk + chair — one line, one owner</code></td></tr><tr><td><code>20-11 970-NP-57 ICSS IR network + Lee</code></td><td><code>• 20.11 970-NP-57 ICSS IR network with Lee</code></td></tr><tr><td><code>970-NP-17B</code> / <code>980-NP-04</code> (no state written)</td><td><code>? 970-NP-17B + 980-NP-04 — state to confirm</code></td></tr><tr><td><code>PTW</code> (AIR, no owner, no date)</td><td><code>⇒ Aras: PTW AIR — date TBC</code></td></tr><tr><td><code>0-T?</code> in all three columns</td><td><code>? keys (0-T): LQ ✓ / FIR ? / AIR ?</code></td></tr></tbody></table>
+<p>Three things this board proves, and the reason the sheet exists:</p>
+<ol>
+<li><strong>The board duplicates across areas.</strong> LUN schedule, BICC check and W48 TPC OWS appear in two columns each. The register holds one line with an area tag — the duplicate becomes a decision instead of a twice-maintained fact.</li>
+<li><strong>One item, three names.</strong> LUN has Aras/Chang in FIR and Aras/Seong/Anto in AIR. The board can live with that; a commitment cannot. One owner, the others named as support.</li>
+<li><strong>Partial completion is invisible on a board.</strong> The keys are marked <code>0-T?</code> in LQ, FIR and AIR with no distinction between &quot;asked&quot;, &quot;promised&quot; and &quot;received&quot;. On the register: <code>? keys (0-T): LQ ✓ / FIR ? / AIR ?</code> — you can see at a glance which room you are still blocked on.</li>
+</ol>
+<h2>The 60-second transfer, every morning</h2>
+<ol>
+<li>Photo the board. Do not transcribe it.</li>
+<li>On the kick-off grid, one line per person — only what they said that is new or that they owe.</li>
+<li>After the meeting, move only <code>⇒</code> / <code>→</code> / <code>?</code> / <code>!</code> onto the A4 register. The board&#x27;s area blocks are status, not commitments; they belong in the day&#x27;s LOG entry, not in the register.</li>
+</ol>
+<h2>Earlier boards — 11 and 18.11</h2>
+<p>Your boards are already almost in this grammar. These are real items from 11 and 18 November, rewritten:</p>
+<table class="map"><thead><tr><th>On the board</th><th>Written as</th></tr></thead><tbody><tr><td><code>700-NP-03 ✓ 980-NP-01 ✓</code> (energised)</td><td><code>✓ 700-NP-03 / 980-NP-01 energised 11.11</code></td></tr><tr><td><code>18-11 970-NP-03 AC / 970-NP-04 DCS</code></td><td><code>• 18.11 970-NP-03 AC + 970-NP-04 DCS energised — QIR/QCR closed</code></td></tr><tr><td><code>970-NP-02 SIS/TR 18-11 19:00</code></td><td><code>? 970-NP-02 SIS/TR — 18.11 19:00 promised, not confirmed</code></td></tr><tr><td><code>970-NP-45/46 -20m WD</code>, <code>970-NP-25C last priority</code></td><td><code>→ chase BICC: 970-NP-45/46 20m WD + 970-NP-25C — by 20.11</code></td></tr><tr><td><code>*1 LQ → ARAS</code>, <code>*2 PTW note all PH &amp; FR</code></td><td><code>⇒ Aras: PTW notes for all PH &amp; PR — by Mon 16.11</code></td></tr><tr><td><code>1) ICSS SERVER running</code>, <code>OWS (2) working → complete Datav upgrade</code></td><td><code>⇒ Yang Zheng: finish OWS(2) Datav upgrade — confirm Fri 21.11</code></td></tr><tr><td><code>LER cold SAT 6-week</code></td><td><code>! LER cold SAT = 6 weeks — Feb readiness at risk if it starts after 05.01</code></td></tr><tr><td><code>Emerson internal cab Pow ... pending in MD</code></td><td><code>? Emerson internal cabinet power — pending in MD, since 14.11</code></td></tr><tr><td><code>*COLD SAT cabinets</code>, <code>*JRA review</code>, <code>*RLMU management</code></td><td><code>→ Buly: COLD SAT cabinet list + JRA review + RLMU — one line each, by 21.11</code></td></tr><tr><td><code>RADIO 42</code> / <code>FEB only MAV master</code></td><td><code>• RADIO 42 — only MAV master until Feb</code></td></tr><tr><td><code>Anto + Seong Lee MON 16</code></td><td><code>⇒ Anto + Seong Lee: LQ BICC walkdown Mon 16.11 (late — reschedule)</code></td></tr><tr><td><code>FMR O/S - TQ WIKA</code></td><td><code>? FMR O/S — TQ to WIKA, awaiting vendor reply since 12.11</code></td></tr></tbody></table>
+<h2>From your log</h2>
+<table class="map"><thead><tr><th>Log line (today)</th><th>Better</th></tr></thead><tbody><tr><td>&quot;Follow up with Aras&quot;</td><td><code>⇒ Aras: PTW requester list for all current team members — by Thu 20.11</code></td></tr><tr><td>&quot;Meeting with Emerson about DCS&quot;</td><td><code>• Emerson: DCS baseplate count for CHARMS upgrade — answer by Wed 26.11</code></td></tr><tr><td>&quot;I have to check the punch list status&quot;</td><td><code>? punch list status AIR/FIR — no count yet, since 14.11</code></td></tr><tr><td>600-word entry about a walkdown</td><td><code>• FIR Room WD 18.11 10:00 — walkdown done, punch count started</code> + one <code>!</code> if needed</td></tr></tbody></table>
+<h2>Where each mark lands in the app</h2>
+<table class="app"><thead><tr><th>Mark</th><th>type</th><th>status</th><th>follow_up</th><th>eta / next_check</th></tr></thead><tbody><tr><td><code>•</code> / <code>!</code></td><td>LOG</td><td>LOG</td><td>empty</td><td>empty</td></tr><tr><td><code>→</code></td><td>TODO</td><td>PENDING</td><td><code>me</code></td><td>date from the line</td></tr><tr><td><code>⇒</code></td><td>TASK</td><td>ASSIGNED</td><td><strong>their name</strong></td><td>date from the line</td></tr><tr><td><code>?</code></td><td>TODO</td><td>PENDING</td><td><code>waiting: &lt;name&gt;</code></td><td>the date you will chase</td></tr><tr><td><code>✓</code></td><td>—</td><td>set COMPLETED</td><td>—</td><td>—</td></tr></tbody></table>
+<p>One LOG per day, five lines, built from the day&#x27;s <code>•</code> and <code>!</code>. Not a retelling.</p>
+<h2>Anti-patterns (each one is a future ghost)</h2>
+<ul>
+<li><strong>No outcome.</strong> &quot;Meeting with Emerson about DCS.&quot; → What was decided? Who does what by when?</li>
+<li><strong>No date.</strong> &quot;Chase BICC.&quot; → By when? You set the dates; that is your job.</li>
+<li><strong>Two owners.</strong> &quot;Aras and Buly to sort the loop folders.&quot; → Two lines, two dates.</li>
+<li><strong>The essay.</strong> Eight lines about one walkdown. → One line, plus the punch items as <code>⇒</code>.</li>
+<li><strong>The pronoun.</strong> &quot;He will check.&quot; → Name.</li>
+<li><strong>The misc.</strong> &quot;Misc issues with ICSS.&quot; → Not actionable; either name the issue or leave it off.</li>
+<li><strong>The backfill.</strong> Reconstructing Monday on Wednesday. → <code>gap 17-18.11</code> and move on.</li>
+</ul>
+
+<div class="notes">
+<div class="notes-label">Notes</div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+</div>
+<div class="colophon">
+  <span>Organizational notes · Legend and worked examples</span>
+  <span>v1.1 · 2026-11-20 · A4</span>
+</div>
+</body>
+</html>

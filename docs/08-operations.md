@@ -44,13 +44,28 @@ Port: `config.json → app.port` (8855). Fallbacks: 8001, 8002, 8003, 5000, 3000
 ```powershell
 .\run-build.bat
 ```
-
 What it does: deletes `build/` and `dist/`, runs `npm install` + `npm run build`, then PyInstaller `--onefile --noconsole`, bundling `frontend/dist` and `config.json`, and copies the config next to the exe.
 
 Notes:
 - Rebuild after **any** change to `backend/` or `frontend/src/`. The frozen app bundles a snapshot.
 - First launch of a fresh exe may be slow (unpacking) and Windows Defender may scan it; `exclude-defender.bat` (admin) helps.
 - The exe writes `data/` and `personallog.log` next to itself, not in the source tree. Keep that in mind when backing up.
+
+## Build the printable A4 documents
+
+The two reference documents have a print pipeline (no external dependencies):
+
+```powershell
+.venv\Scripts\python.exe tools\build_print.py            # both
+.venv\Scripts\python.exe tools\build_print.py --only 02  # one
+.venv\Scripts\python.exe tools\build_print.py --no-pdf   # HTML only
+```
+
+- Sources: `docs/02-legend-and-examples.md`, `docs/03-first-two-weeks.md`.
+- Style: `tools/print.css` (black/white/grey, A4, fixed margins, page-break rules).
+- Output: `docs/print/<name>.html` and `.pdf`.
+- PDF is produced by Microsoft Edge in headless mode (`--print-to-pdf`). If Edge is busy or hangs, the script retries once with a fresh profile; close stray headless Edge processes if it still fails.
+- Page breaks are tuned per document in the `DOCS` list (`breaks`, `notes`). If you change the Markdown, re-render and check the last page: a notes block that no longer fits will move to its own page.
 
 ## Configuration
 

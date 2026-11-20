@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>First two weeks, step by step</title>
+<style>
+/* Print stylesheet for the organizational-notes documents.
+   Black, white and grey only - safe on any mono laser printer. */
+
+@page {
+  size: A4;
+  margin: 17mm 16mm 20mm;
+}
+
+:root {
+  --ink: #111111;
+  --ink-soft: #3c3c3c;
+  --grey: #6f6f6f;
+  --grey-light: #b9b9b9;
+  --rule: #cfcfcf;
+  --wash: #f4f4f4;
+  --wash-2: #fafafa;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-size: 9.6pt;
+  line-height: 1.44;
+  color: var(--ink);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ---------- cover / masthead ---------- */
+
+.masthead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10mm;
+  border-bottom: 1.4pt solid var(--ink);
+  padding-bottom: 4mm;
+  margin-bottom: 2.5mm;
+}
+
+.kicker {
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 4mm;
+}
+
+h1 {
+  font-size: 23pt;
+  line-height: 1.06;
+  letter-spacing: -0.018em;
+  font-weight: 800;
+  margin: 0 0 3mm;
+}
+
+.deck {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 11.2pt;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  max-width: 128mm;
+  margin: 0;
+}
+
+.bignum {
+  font-size: 62pt;
+  line-height: 0.78;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #e4e4e4;
+  flex-shrink: 0;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 7pt;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 7mm;
+}
+
+/* ---------- headings ---------- */
+
+h2 {
+  counter-increment: section;
+  display: flex;
+  align-items: baseline;
+  gap: 3mm;
+  font-size: 13pt;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  margin: 7.5mm 0 3mm;
+  padding-bottom: 1.8mm;
+  border-bottom: 0.7pt solid var(--ink);
+  break-after: avoid;
+}
+
+h2::before {
+  content: counter(section, decimal-leading-zero);
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--grey);
+  flex-shrink: 0;
+}
+
+body { counter-reset: section; }
+
+h3 {
+  font-size: 10.2pt;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin: 6mm 0 2mm;
+  break-after: avoid;
+}
+
+h3::before {
+  content: "";
+  display: inline-block;
+  width: 2.4mm;
+  height: 2.4mm;
+  background: var(--ink);
+  margin-right: 2.4mm;
+  vertical-align: 0.2mm;
+}
+
+/* ---------- text ---------- */
+
+p { margin: 0 0 3mm; orphans: 2; widows: 2; }
+
+p.note {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  color: var(--grey);
+  font-size: 9.6pt;
+}
+
+strong { font-weight: 700; }
+
+a { color: inherit; text-decoration: none; border-bottom: 0.4pt dotted var(--grey); }
+
+code {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 8.7pt;
+  color: var(--ink);
+  word-break: break-word;
+}
+
+hr {
+  border: 0;
+  border-top: 0.5pt solid var(--rule);
+  margin: 6mm 0;
+}
+
+/* ---------- lists ---------- */
+
+ul, ol { margin: 0 0 3.5mm; padding-left: 5.5mm; }
+
+li { margin-bottom: 1.4mm; break-inside: avoid; }
+
+ul li::marker { color: var(--grey-light); }
+
+li.task {
+  list-style: none;
+  margin-left: -5.5mm;
+  padding-left: 7mm;
+  position: relative;
+}
+
+li.task .box {
+  position: absolute;
+  left: 0;
+  top: 0.55mm;
+  width: 3.4mm;
+  height: 3.4mm;
+  border: 0.7pt solid var(--ink);
+}
+
+/* ---------- tables ---------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2mm 0 4mm;
+  font-size: 8.7pt;
+  line-height: 1.36;
+  break-inside: auto;
+}
+
+thead { display: table-header-group; }
+
+tr { break-inside: avoid; }
+
+thead th {
+  text-align: left;
+  font-size: 6.8pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: var(--wash);
+  padding: 1.8mm 2.4mm;
+  border-bottom: 0.8pt solid var(--ink);
+  vertical-align: bottom;
+}
+
+tbody td {
+  padding: 1.9mm 2.4mm;
+  border-bottom: 0.4pt solid var(--rule);
+  vertical-align: top;
+}
+
+tbody tr:nth-child(even) td { background: var(--wash-2); }
+
+tbody tr:last-child td { border-bottom: 0.8pt solid var(--ink); }
+
+/* map tables: "what the board says" vs "what you write" */
+
+table.map td:first-child {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  color: var(--grey);
+  width: 44%;
+}
+
+table.map td:last-child {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 8.4pt;
+}
+
+/* marks table */
+
+table.marks td:first-child {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 17pt;
+  line-height: 1;
+  text-align: center;
+  width: 11mm;
+  padding-top: 1.6mm;
+}
+
+table.marks td:nth-child(2) { width: 40%; }
+table.marks td:nth-child(3) { font-family: Georgia, serif; font-style: italic; color: var(--ink-soft); }
+
+/* app-mapping table: mark in mono */
+
+table.app td:first-child {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 10pt;
+  text-align: center;
+  width: 14mm;
+}
+
+/* ---------- callouts ---------- */
+
+.callout {
+  background: var(--wash);
+  border-left: 2.2pt solid var(--ink);
+  padding: 3mm 3.6mm;
+  margin: 3.5mm 0 4mm;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10.4pt;
+  line-height: 1.45;
+  break-inside: avoid;
+}
+
+.callout strong { font-family: "Segoe UI", Arial, sans-serif; font-size: 8pt; letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 1.2mm; }
+
+blockquote {
+  margin: 5mm 0;
+  padding: 5mm 6mm;
+  border-top: 0.8pt solid var(--ink);
+  border-bottom: 0.8pt solid var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11pt;
+  line-height: 1.45;
+  break-inside: avoid;
+}
+
+blockquote p { margin: 0; }
+
+/* ---------- notes area ---------- */
+
+.notes {
+  margin-top: 9mm;
+  break-inside: avoid;
+}
+
+.notes-label {
+  font-size: 6.6pt;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 2.5mm;
+}
+
+.rule-line {
+  height: 8.6mm;
+  border-bottom: 0.4pt solid #dedede;
+}
+
+/* ---------- colophon ---------- */
+
+.colophon {
+  margin-top: 9mm;
+  padding-top: 1.8mm;
+  border-top: 0.5pt solid var(--rule);
+  font-size: 6.6pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grey);
+  display: flex;
+  justify-content: space-between;
+  break-inside: avoid;
+}
+
+/* ---------- page control ---------- */
+
+.newpage { break-before: page; }
+
+section { break-inside: auto; }
+
+@media screen {
+  body { max-width: 210mm; margin: 10mm auto; background: #fff; box-shadow: 0 2mm 8mm rgba(0,0,0,.12); padding: 17mm 16mm 20mm; }
+}
+
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div>
+    <div class="kicker">Organizational notes · Rollout 03</div>
+    <h1>First two weeks, step by step</h1>
+    <p class="deck">Week 1 is capture and the sheet. Nothing else. The rest waits.</p>
+  </div>
+  <div class="bignum">03</div>
+</header>
+<div class="meta">
+  <span>v1.1 · 2026-11-20 · A4 · black &amp; white</span>
+  <span>organizational-notes · fabiomatricardi</span>
+</div>
+
+<p>Do not change everything on day one. Week 1 is <strong>capture + the A4</strong>, nothing else. Week 2 adds the Friday loop. Week 3 is a review where you cut what you did not use.</p>
+<h2>Before you start (30–45 minutes, once)</h2>
+<ul>
+<li class="task"><span class="box"></span>Buy <strong>one clipboard, A4</strong> and a <strong>fine permanent marker</strong> + a pencil. The pencil matters: you will edit the A4 all week.</li>
+<li class="task"><span class="box"></span>Print <strong>6 copies of <code>templates/03-OPEN-SHEET-A4.pdf</code></strong> at A4 <strong>landscape</strong>, 100%, no &quot;fit to page&quot;. Black and white is fine. One for now, five spare.</li>
+<li class="task"><span class="box"></span>Print <strong>25 copies of <code>templates/04-KICKOFF-GRID-A4.pdf</code></strong> at A4 <strong>portrait</strong>, 100%. One per working day for five weeks.</li>
+<li class="task"><span class="box"></span>Open <code>templates/03-OPEN-SHEET-A4.html</code> and <code>templates/04-KICKOFF-GRID-A4.html</code> in a browser, paste the <strong>20 names</strong> in the &quot;Names&quot; box, click <strong>Fill rows</strong>, then <strong>Print</strong>. The names are saved in that browser, so next time it is one click. Adding <code>Name, Area</code> in the box also fills the role column.</li>
+<li class="task"><span class="box"></span>Put the printed A4 OPEN sheet on the clipboard and <strong>on the desk where you sit</strong>. Not in the notebook. It must be visible without opening anything.</li>
+<li class="task"><span class="box"></span>Phone: open Telegram. The bot is now the inbox (see <a href="07-telegram-setup.md"><code>07-telegram-setup.md</code></a>, 10 minutes). Until it is set up, use <strong>Saved Messages</strong> and paste into the app by hand.</li>
+<li class="task"><span class="box"></span>Put the A5 notebook back on the desk with a fresh page. The A7 goes in a drawer — replace it with the phone.</li>
+<li class="task"><span class="box"></span>Read <code>02-LEGEND-AND-EXAMPLES.md</code> once. Do not memorise it; the sheet&#x27;s footer repeats the marks.</li>
+</ul>
+<p>Optional but useful: a photo folder or Telegram chat named <code>whiteboard</code> so board photos don&#x27;t mix with tasks.</p>
+<h2>Week 1 — capture and the sheet only</h2>
+<p><strong>No app changes this week. No new meetings. No new report format.</strong></p>
+<h3>Monday</h3>
+<ul>
+<li class="task"><span class="box"></span>07:20 kick-off: photograph the whiteboard, send it to Telegram <strong>with a one-line caption</strong> (<code>wk47 mon — AIR/FIR ready, ICSS server ok</code>). On the kick-off grid, one line per person, only what is new.</li>
+<li class="task"><span class="box"></span>07:25 move the <code>⇒</code>/<code>→</code>/<code>?</code>/<code>!</code> to the A4. Write the week&#x27;s <strong>3 targets</strong>. Write the two anchors. <strong>Start the clock: 5 minutes.</strong></li>
+<li class="task"><span class="box"></span>16:30: app. Enter the new commitments as TODO/TASK with <strong>owner and date</strong>, close what closed, write <strong>one 5-line LOG</strong>. 20 minutes, then close the laptop.</li>
+</ul>
+<h3>Tuesday–Thursday</h3>
+<ul>
+<li class="task"><span class="box"></span>Same rhythm. The only new habit is: <strong>anything said to you goes to Telegram within 30 seconds.</strong></li>
+<li class="task"><span class="box"></span>Wednesday 16:30: add the <code>?</code> lines waiting on SHI to the Thursday agenda.</li>
+<li class="task"><span class="box"></span>Thursday, after the SHI meeting: update the A4 before you leave the room. Decisions are not re-derivable.</li>
+</ul>
+<h3>Friday</h3>
+<ul>
+<li class="task"><span class="box"></span>13:00, 15 minutes: mark ✓/✗ on the A4, write 3 lines (done / blocked / risk). Then do the report <strong>the way you do it today</strong> — this week we are not changing the report, only measuring it.</li>
+<li class="task"><span class="box"></span>Note the count: how many report bullets did you have to pull out of your head? Write it at the bottom of the sheet.</li>
+</ul>
+<h3>Weekend</h3>
+<ul>
+<li class="task"><span class="box"></span>Nothing. No log on Saturday or Sunday. <strong>Do not backfill.</strong></li>
+</ul>
+<p><strong>Week 1 success = the A4 was on the desk and you read it every morning.</strong> Nothing else.</p>
+<h2>Week 2 — add the follow-up loop and the Friday 15 minutes</h2>
+<ul>
+<li class="task"><span class="box"></span><strong>Monday 07:25:</strong> new A4. Only live lines cross. Take a photo of the old sheet before you let it go — that is your archive, not the notebook.</li>
+<li class="task"><span class="box"></span><strong>Daily 16:30, extra 2 minutes:</strong> before closing the laptop, look at the A4&#x27;s <code>Next check</code> column. Anything due today gets its Teams message / email / corridor question <strong>now</strong>. Note the outcome with <code>•</code>.</li>
+<li class="task"><span class="box"></span><strong>Wednesday:</strong> SHI agenda from the <code>?</code> lines.</li>
+<li class="task"><span class="box"></span><strong>Friday 12:45:</strong> close the week on the sheet first, then generate the AI weekly report. Compare it to your hand-written 3 lines: whatever the AI missed is a <code>•</code>/<code>!</code> you failed to capture. Say so out loud once a week.</li>
+<li class="task"><span class="box"></span>Count the reconstructed bullets again. Week 1 number vs Week 2 number.</li>
+</ul>
+<h2>Week 3 — the review (30 minutes, alone, with the sheets)</h2>
+<p>Answer three questions on paper:</p>
+<ol>
+<li><strong>Which marks did you actually use?</strong> If <code>?</code> was never written, you are not recording waits — that is the leak. If <code>!</code> was never written, you are swallowing risks.</li>
+<li><strong>Which column of the A4 was never filled?</strong> That column is wrong or the whole block is. Fix the template, not your willpower.</li>
+<li><strong>Which of your 20 people had a blank row all week?</strong> Those are next week&#x27;s walk-and-talks. If the answer is &quot;I don&#x27;t know&quot;, the grid is not being used at the kick-off.</li>
+</ol>
+<p>Then trim: delete anything from the method you did not touch in 15 working days. A method you trimmed is a method you own.</p>
+<h2>Recovery rules (they will be needed)</h2>
+<ul>
+<li><strong>Missed a day:</strong> write <code>gap</code> and start today. Never reconstruct.</li>
+<li><strong>Missed Monday:</strong> rewrite the A4 on the day you return; the week starts when you say it starts.</li>
+<li><strong>A page fills up:</strong> do not start a second page. Rewrite the live lines onto a fresh sheet — that is the design, not a workaround.</li>
+<li><strong>Leave / rotation:</strong> photograph the A4, copy it into the handover note, name the owner of each open line. 10 minutes.</li>
+<li><strong>Kick-off cancelled:</strong> the grid is not filled. Fine — the A4 still runs.</li>
+<li><strong>Field day with no desk time:</strong> Telegram only; the 16:30 slot becomes 17:00. Do not skip the nudges; skip the day LOG if you must.</li>
+</ul>
+<h2>What to deliberately ignore for now</h2>
+<ul>
+<li>Telegram bot, inbox screen, follow-up view, new app fields. Not before Week 3.</li>
+<li>Tags, dashboards, KPIs. The report you already have is good.</li>
+<li>Making the leads log. Not this quarter. Their 5-line verbal update comes first.</li>
+<li>Perfect handwriting, colour coding, any second notebook.</li>
+</ul>
+<h2>The one-page version (pin this)</h2>
+<blockquote><p>Photo the board → one line per person → 5 min on the A4 → Telegram as you go → 5 min at lunch → 20 min at 16:30 with nudges sent → Monday rewrite → Friday 15 min and the meeting is free.</p></blockquote>
+
+<div class="notes">
+<div class="notes-label">Notes</div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+<div class="rule-line"></div>
+</div>
+<div class="colophon">
+  <span>Organizational notes · First two weeks, step by step</span>
+  <span>v1.1 · 2026-11-20 · A4</span>
+</div>
+</body>
+</html>

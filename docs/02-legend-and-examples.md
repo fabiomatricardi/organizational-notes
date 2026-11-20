@@ -71,7 +71,8 @@ Your boards are already almost in this grammar. These are real items from 11 and
 | `Emerson internal cab Pow ... pending in MD` | `? Emerson internal cabinet power — pending in MD, since 14.11` |
 | `*COLD SAT cabinets`, `*JRA review`, `*RLMU management` | `→ Buly: COLD SAT cabinet list + JRA review + RLMU — one line each, by 21.11` |
 | `RADIO 42` / `FEB only MAV master` | `• RADIO 42 — only MAV master until Feb` |
-| `ARTO + Seong Lee MON 16` | `⇒ Anto + Seong Lee: LQ BICC walkdown Mon 16.11 (late — reschedule)` || `FMR O/S - TQ WIKA` | `? FMR O/S — TQ to WIKA, awaiting vendor reply since 12.11` |
+| `Anto + Seong Lee MON 16` | `⇒ Anto + Seong Lee: LQ BICC walkdown Mon 16.11 (late — reschedule)` |
+| `FMR O/S - TQ WIKA` | `? FMR O/S — TQ to WIKA, awaiting vendor reply since 12.11` |
 
 ## From your log
 
