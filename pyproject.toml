@@ -1,0 +1,20 @@
+[project]
+name = "personallog"
+version = "1.0.0"
+description = "Personal Log Manager with LLM Analysis"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.34.0",
+    "pydantic>=2.11.0",
+    "openpyxl>=3.1.0",
+    "httpx>=0.28.0",
+    "aiosqlite>=0.20.0",
+    "python-multipart>=0.0.18",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pyinstaller>=6.0",
+    "ruff>=0.11.0",
+]

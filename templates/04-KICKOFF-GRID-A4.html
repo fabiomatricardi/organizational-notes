@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Kick-off grid — A4 portrait</title>
+<style>
+  @page { size: A4 portrait; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #e9e9e9; font-family: Arial, Helvetica, sans-serif; color: #000; }
+
+  .sheet {
+    width: 210mm; height: 296mm; overflow: hidden; background: #fff;
+    margin: 6mm auto; padding: 7mm 8mm 6mm; display: flex; flex-direction: column;
+  }
+  .cap { font-size: 7pt; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+  .u { display: inline-block; border-bottom: 0.25mm solid #666; height: 5.2mm; vertical-align: bottom; }
+  .grow { flex: 1; }
+  .hline { display: flex; align-items: flex-end; gap: 2mm; height: 6.4mm; font-size: 8.4pt; }
+  .sl { font-size: 8pt; padding: 0 .8mm; }
+
+  header { border-bottom: 0.5mm solid #000; padding-bottom: 2mm; }
+  .top { display: flex; justify-content: space-between; align-items: flex-end; }
+
+  table { width: 100%; border-collapse: collapse; table-layout: fixed; margin-top: 2mm; }
+  th {
+    font-size: 6.8pt; text-transform: uppercase; letter-spacing: .07em; text-align: left;
+    padding: 1mm 1.5mm; border-bottom: 0.45mm solid #000; font-weight: 700;
+  }
+  td { border-bottom: 0.2mm solid #a5a5a5; padding: 0 1.5mm; font-size: 8pt; vertical-align: bottom; }
+  td.num { font-size: 6.4pt; color: #666; text-align: center; }
+  #gridRows td { height: 11mm; }
+  td[contenteditable]:focus { outline: none; background: #f4f4f4; }
+
+  .foot { margin-top: auto; border-top: 0.45mm solid #000; padding-top: 1.6mm; }
+  .legend { font-size: 7.4pt; }
+  .legend b { font-family: "Segoe UI Symbol", Arial, sans-serif; font-size: 8.5pt; }
+  .note { font-size: 6.9pt; color: #333; margin-top: 1.2mm; line-height: 1.3; }
+
+  .noprint {
+    position: fixed; top: 4mm; right: 4mm; z-index: 9; padding: 2mm 4mm;
+    font: 700 9pt Arial; background: #111; color: #fff; border: 0; border-radius: 2mm; cursor: pointer;
+  }
+  .tools {
+    position: fixed; left: 4mm; top: 4mm; z-index: 9; width: 70mm;
+    background: #fff; border: 1px solid #999; border-radius: 2mm; padding: 2.5mm;
+    font: 8pt Arial; box-shadow: 0 1mm 3mm rgba(0,0,0,.2);
+  }
+  .tools summary { cursor: pointer; font-weight: 700; }
+  .tools textarea {
+    width: 100%; height: 40mm; margin-top: 2mm; font: 8pt/1.3 Arial;
+    border: 1px solid #aaa; border-radius: 1mm; padding: 1.5mm; resize: vertical;
+  }
+  .tools .row { display: flex; gap: 1.5mm; margin-top: 1.5mm; }
+  .tools button {
+    flex: 1; padding: 1.5mm 2mm; font: 700 7.5pt Arial; border: 1px solid #111;
+    background: #fff; border-radius: 1mm; cursor: pointer;
+  }
+  .tools button.primary { background: #111; color: #fff; }
+  .tools .hintbox { color: #444; font-size: 7pt; margin-top: 1.5mm; line-height: 1.25; }
+  @media print { .noprint, .tools { display: none; } body { background: #fff; } .sheet { margin: 0; } }
+</style>
+</head>
+<body>
+<button class="noprint" onclick="window.print()">Print — A4 portrait</button>
+
+<div class="tools noprint">
+  <details>
+    <summary>Names (type once)</summary>
+    <textarea id="nameBox" placeholder="One name per line&#10;Syukri&#10;Yernar&#10;Yang Zheng&#10;..."></textarea>
+    <div class="row">
+      <button class="primary" onclick="fillNames()">Fill rows</button>
+      <button onclick="saveNames()">Save</button>
+    </div>
+    <div class="row">
+      <button onclick="clearNames()">Clear names</button>
+    </div>
+    <div class="hintbox">
+      Print one per working day, or fill names once and photocopy 25.
+      Names are saved in this browser.
+    </div>
+  </details>
+</div>
+
+<div class="sheet">
+  <header>
+    <div class="top">
+      <div class="cap">Kick-off grid</div>
+      <div class="cap">Week <span class="u" style="width: 12mm"></span></div>
+    </div>
+    <div class="hline" style="margin-top: 1.6mm">
+      <span class="cap" style="width: 13mm">Date</span>
+      <span class="u" style="width: 11mm"></span><span class="sl">/</span><span class="u" style="width: 11mm"></span>
+      <span class="cap" style="margin-left: 4mm">Day</span><span class="u" style="width: 38mm"></span>
+    </div>
+    <div class="hline"><span class="cap" style="width: 20mm">Today's 3</span><span class="u grow"></span></div>
+  </header>
+
+  <table>
+    <colgroup><col style="width: 9mm"><col style="width: 54mm"><col></colgroup>
+    <thead><tr><th>#</th><th>Name</th><th>Only what is new — one line</th></tr></thead>
+    <tbody id="gridRows"></tbody>
+  </table>
+
+  <div class="foot">
+    <div class="legend">
+      <b>•</b> fact / decision &nbsp;&nbsp; <b>→</b> mine &nbsp;&nbsp; <b>⇒</b> theirs + name + date &nbsp;&nbsp;
+      <b>?</b> waiting &nbsp;&nbsp; <b>!</b> risk &nbsp;&nbsp; <b>✓</b> closed
+    </div>
+    <div class="note">
+      Photo the whiteboard first. Then write here only what is not on it: commitments and people.
+      A blank row means nothing new — that is a finding, not a gap.
+    </div>
+  </div>
+</div>
+
+<script>
+var NAMES_KEY = 'notekeeping.kickoff.names';
+
+(function () {
+  var tb = document.getElementById('gridRows');
+  for (var i = 1; i <= 22; i++) {
+    var tr = document.createElement('tr');
+    var n = document.createElement('td');
+    n.className = 'num';
+    n.textContent = (i < 10 ? '0' : '') + i;
+    tr.appendChild(n);
+    for (var c = 0; c < 2; c++) {
+      var td = document.createElement('td');
+      td.setAttribute('contenteditable', 'true');
+      td.spellcheck = false;
+      tr.appendChild(td);
+    }
+    tb.appendChild(tr);
+  }
+})();
+
+function rows() {
+  return Array.prototype.slice.call(document.querySelectorAll('#gridRows tr'));
+}
+
+function saveNames() {
+  var names = rows().map(function (tr) { return tr.children[1].textContent.trim(); });
+  try { localStorage.setItem(NAMES_KEY, JSON.stringify(names)); } catch (e) {}
+}
+
+function restoreNames() {
+  var saved = [];
+  try { saved = JSON.parse(localStorage.getItem(NAMES_KEY) || '[]'); } catch (e) {}
+  rows().forEach(function (tr, i) {
+    tr.children[1].textContent = saved[i] || '';
+  });
+  var box = document.getElementById('nameBox');
+  if (box) box.value = saved.filter(Boolean).join('\n');
+}
+
+function fillNames() {
+  var names = document.getElementById('nameBox').value
+    .split('\n')
+    .map(function (s) { return s.trim(); })
+    .filter(Boolean);
+  rows().forEach(function (tr, i) {
+    tr.children[1].textContent = names[i] || '';
+  });
+  saveNames();
+}
+
+function clearNames() {
+  rows().forEach(function (tr) { tr.children[1].textContent = ''; });
+  saveNames();
+}
+
+restoreNames();
+document.getElementById('gridRows').addEventListener('focusout', saveNames);
+</script>
+</body>
+</html>

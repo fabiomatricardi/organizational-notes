@@ -1,0 +1,30 @@
+# --- Python / build ---
+.venv/
+__pycache__/
+*.pyc
+.ruff_cache/
+build/
+dist/
+*.spec
+*.log
+
+# --- Node ---
+node_modules/
+frontend/dist/
+
+# --- Local config (contains API keys and the Telegram token) ---
+config.json
+
+# --- Runtime data (private) ---
+data/*
+!data/.gitkeep
+
+# --- OS ---
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# --- Editor ---
+.vscode/
+.idea/
+.opencode/
