@@ -422,6 +422,53 @@ table.signs td:nth-child(2) { width: auto; }
 
 .onepager .colophon { display: none; }
 
+/* page two: reference, set smaller than the poster above it */
+
+.onepager h2.newpage { margin-top: 0; }
+
+.onepager h2.newpage ~ p,
+.onepager h2.newpage ~ li {
+  font-size: 9.1pt;
+  line-height: 1.40;
+}
+
+.onepager h2.newpage ~ p { margin-bottom: 2.6mm; }
+
+.onepager h2.newpage ~ h3 {
+  font-size: 10pt;
+  margin: 2.6mm 0 1.2mm;
+}
+
+.onepager h2.newpage ~ table { font-size: 8.4pt; }
+
+.onepager h2.newpage ~ table thead th { padding: 1.6mm 2.2mm; }
+
+.onepager h2.newpage ~ table tbody td { padding: 1.6mm 2.2mm; }
+
+.onepager h2.newpage ~ ul,
+.onepager h2.newpage ~ ol { margin-bottom: 2.4mm; }
+
+.onepager h2.newpage ~ ul > li,
+.onepager h2.newpage ~ ol > li { margin-bottom: 1.7mm; }
+
+/* page two uses native list numbers: an absolutely positioned
+   ::before can be orphaned onto the next page at a break */
+
+.onepager h2.newpage ~ ol {
+  list-style: decimal;
+  padding-left: 7.5mm;
+  counter-reset: none;
+}
+
+.onepager h2.newpage ~ ol > li { counter-increment: none; }
+
+.onepager h2.newpage ~ ol > li::before { content: none; }
+
+.onepager h2.newpage ~ ol > li::marker {
+  color: var(--grey);
+  font-weight: 700;
+}
+
 /* ---------- page control ---------- */
 
 .newpage { break-before: page; }
@@ -518,7 +565,7 @@ section { break-inside: auto; }
 <li>Perfect handwriting, colour coding, any second notebook.</li>
 </ul>
 <h2>The one-page version (pin this)</h2>
-<p>Print <a href="print/00-how-it-works.pdf"><code>print/00-how-it-works.pdf</code></a> — one A4, black and white, no app, no Telegram.</p>
+<p>Print <a href="print/00-how-it-works.pdf"><code>print/00-how-it-works.pdf</code></a> — two A4 pages, black and white, no app, no Telegram. Page 1 goes above the desk; page 2 stays in the folder for the week you start asking these questions.</p>
 <blockquote><p>Photo the board → one line per person → 5 min on the A4 → Telegram as you go → 5 min at lunch → 20 min at 16:30 with nudges sent → Monday rewrite → Friday 15 min and the meeting is free.</p></blockquote>
 
 <div class="notes">

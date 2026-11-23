@@ -5,8 +5,8 @@ All notable changes to this project. Dates are local (KST).
 ## [1.2.0] — 2026-11-23
 
 ### Added
-- `docs/00-how-it-works.md` — the whole method on one page, in four steps. Print-ready as [`docs/print/00-how-it-works.pdf`](docs/print/00-how-it-works.pdf).
-- The one-pager is a separate layout in the print pipeline (`onepager` flag in `tools/build_print.py`): larger type, numbered steps, no colophon, and a compact legend strip. It prints on exactly one A4.
+- `docs/00-how-it-works.md` — the whole method on one page, plus a second page answering the three questions that always come up. Print-ready as [`docs/print/00-how-it-works.pdf`](docs/print/00-how-it-works.pdf).
+- The one-pager is a separate layout in the print pipeline (`onepager` flag in `tools/build_print.py`): larger type, numbered steps, no colophon, and a compact legend strip. Page 1 is the poster; page 2 is set smaller as reference.
 
 ### Changed
 - `docs/01-method.md` and `docs/03-first-two-weeks.md` now point to the one-pager as the entry point; the long documents are reference, not the daily tool.

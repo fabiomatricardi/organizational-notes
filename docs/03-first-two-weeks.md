@@ -88,6 +88,6 @@ Then trim: delete anything from the method you did not touch in 15 working days.
 
 ## The one-page version (pin this)
 
-Print [`print/00-how-it-works.pdf`](print/00-how-it-works.pdf) — one A4, black and white, no app, no Telegram.
+Print [`print/00-how-it-works.pdf`](print/00-how-it-works.pdf) — two A4 pages, black and white, no app, no Telegram. Page 1 goes above the desk; page 2 stays in the folder for the week you start asking these questions.
 
 > Photo the board → one line per person → 5 min on the A4 → Telegram as you go → 5 min at lunch → 20 min at 16:30 with nudges sent → Monday rewrite → Friday 15 min and the meeting is free.

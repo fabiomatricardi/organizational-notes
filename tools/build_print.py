@@ -47,7 +47,7 @@ DOCS = [
         "kicker": "Organizational notes · Pin this above the desk",
         "deck": "You keep one page that says what is still open and who owes it. Everything else exists to keep that page true.",
         "footer": "How it works",
-        "breaks": [],
+        "breaks": ["Three questions"],
         "notes": 0,
         "onepager": True,
         "bignum": "",

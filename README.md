@@ -88,7 +88,7 @@ run-prod.bat          launch the built .exe
 
 | Document | File |
 |---|---|
-| **How it works** — the one-page pin sheet | [`docs/print/00-how-it-works.pdf`](docs/print/00-how-it-works.pdf) |
+| **How it works** — pin sheet + the three questions | [`docs/print/00-how-it-works.pdf`](docs/print/00-how-it-works.pdf) |
 | Legend and worked examples | [`docs/print/02-legend-and-examples.pdf`](docs/print/02-legend-and-examples.pdf) |
 | First two weeks, step by step | [`docs/print/03-first-two-weeks.pdf`](docs/print/03-first-two-weeks.pdf) |
 
