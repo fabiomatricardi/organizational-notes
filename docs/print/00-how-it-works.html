@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>How it works</title>
+<style>
+/* Print stylesheet for the organizational-notes documents.
+   Black, white and grey only - safe on any mono laser printer. */
+
+@page {
+  size: A4;
+  margin: 17mm 16mm 20mm;
+}
+
+:root {
+  --ink: #111111;
+  --ink-soft: #3c3c3c;
+  --grey: #6f6f6f;
+  --grey-light: #b9b9b9;
+  --rule: #cfcfcf;
+  --wash: #f4f4f4;
+  --wash-2: #fafafa;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-size: 9.6pt;
+  line-height: 1.44;
+  color: var(--ink);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ---------- cover / masthead ---------- */
+
+.masthead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10mm;
+  border-bottom: 1.4pt solid var(--ink);
+  padding-bottom: 4mm;
+  margin-bottom: 2.5mm;
+}
+
+.kicker {
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 4mm;
+}
+
+h1 {
+  font-size: 23pt;
+  line-height: 1.06;
+  letter-spacing: -0.018em;
+  font-weight: 800;
+  margin: 0 0 3mm;
+}
+
+.deck {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 11.2pt;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  max-width: 128mm;
+  margin: 0;
+}
+
+.bignum {
+  font-size: 62pt;
+  line-height: 0.78;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #e4e4e4;
+  flex-shrink: 0;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 7pt;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 7mm;
+}
+
+/* ---------- headings ---------- */
+
+h2 {
+  counter-increment: section;
+  display: flex;
+  align-items: baseline;
+  gap: 3mm;
+  font-size: 13pt;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  margin: 7.5mm 0 3mm;
+  padding-bottom: 1.8mm;
+  border-bottom: 0.7pt solid var(--ink);
+  break-after: avoid;
+}
+
+h2::before {
+  content: counter(section, decimal-leading-zero);
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--grey);
+  flex-shrink: 0;
+}
+
+body { counter-reset: section; }
+
+h3 {
+  font-size: 10.2pt;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin: 6mm 0 2mm;
+  break-after: avoid;
+}
+
+h3::before {
+  content: "";
+  display: inline-block;
+  width: 2.4mm;
+  height: 2.4mm;
+  background: var(--ink);
+  margin-right: 2.4mm;
+  vertical-align: 0.2mm;
+}
+
+/* ---------- text ---------- */
+
+p { margin: 0 0 3mm; orphans: 2; widows: 2; }
+
+p.note {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  color: var(--grey);
+  font-size: 9.6pt;
+}
+
+strong { font-weight: 700; }
+
+a { color: inherit; text-decoration: none; border-bottom: 0.4pt dotted var(--grey); }
+
+code {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 8.7pt;
+  color: var(--ink);
+  word-break: break-word;
+}
+
+hr {
+  border: 0;
+  border-top: 0.5pt solid var(--rule);
+  margin: 6mm 0;
+}
+
+/* ---------- lists ---------- */
+
+ul, ol { margin: 0 0 3.5mm; padding-left: 5.5mm; }
+
+li { margin-bottom: 1.4mm; break-inside: avoid; }
+
+ul li::marker { color: var(--grey-light); }
+
+li.task {
+  list-style: none;
+  margin-left: -5.5mm;
+  padding-left: 7mm;
+  position: relative;
+}
+
+li.task .box {
+  position: absolute;
+  left: 0;
+  top: 0.55mm;
+  width: 3.4mm;
+  height: 3.4mm;
+  border: 0.7pt solid var(--ink);
+}
+
+/* ---------- tables ---------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2mm 0 4mm;
+  font-size: 8.7pt;
+  line-height: 1.36;
+  break-inside: auto;
+}
+
+thead { display: table-header-group; }
+
+tr { break-inside: avoid; }
+
+thead th {
+  text-align: left;
+  font-size: 6.8pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: var(--wash);
+  padding: 1.8mm 2.4mm;
+  border-bottom: 0.8pt solid var(--ink);
+  vertical-align: bottom;
+}
+
+tbody td {
+  padding: 1.9mm 2.4mm;
+  border-bottom: 0.4pt solid var(--rule);
+  vertical-align: top;
+}
+
+tbody tr:nth-child(even) td { background: var(--wash-2); }
+
+tbody tr:last-child td { border-bottom: 0.8pt solid var(--ink); }
+
+/* map tables: "what the board says" vs "what you write" */
+
+table.map td:first-child {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  color: var(--grey);
+  width: 44%;
+}
+
+table.map td:last-child {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 8.4pt;
+}
+
+/* marks table */
+
+table.marks td:first-child {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 17pt;
+  line-height: 1;
+  text-align: center;
+  width: 11mm;
+  padding-top: 1.6mm;
+}
+
+table.marks td:nth-child(2) { width: 40%; }
+table.marks td:nth-child(3) { font-family: Georgia, serif; font-style: italic; color: var(--ink-soft); }
+
+/* app-mapping table: mark in mono */
+
+table.app td:first-child {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 10pt;
+  text-align: center;
+  width: 14mm;
+}
+
+/* ---------- callouts ---------- */
+
+.callout {
+  background: var(--wash);
+  border-left: 2.2pt solid var(--ink);
+  padding: 3mm 3.6mm;
+  margin: 3.5mm 0 4mm;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10.4pt;
+  line-height: 1.45;
+  break-inside: avoid;
+}
+
+.callout strong { font-family: "Segoe UI", Arial, sans-serif; font-size: 8pt; letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 1.2mm; }
+
+blockquote {
+  margin: 5mm 0;
+  padding: 5mm 6mm;
+  border-top: 0.8pt solid var(--ink);
+  border-bottom: 0.8pt solid var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11pt;
+  line-height: 1.45;
+  break-inside: avoid;
+}
+
+blockquote p { margin: 0; }
+
+/* ---------- notes area ---------- */
+
+.notes {
+  margin-top: 9mm;
+  break-inside: avoid;
+}
+
+.notes-label {
+  font-size: 6.6pt;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 2.5mm;
+}
+
+.rule-line {
+  height: 8.6mm;
+  border-bottom: 0.4pt solid #dedede;
+}
+
+/* ---------- colophon ---------- */
+
+.colophon {
+  margin-top: 9mm;
+  padding-top: 1.8mm;
+  border-top: 0.5pt solid var(--rule);
+  font-size: 6.6pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grey);
+  display: flex;
+  justify-content: space-between;
+  break-inside: avoid;
+}
+
+/* ---------- marks of the one-pager ---------- */
+
+table.signs {
+  margin: 2mm 0 4.5mm;
+}
+
+table.signs td:first-child {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 15pt;
+  line-height: 1;
+  text-align: center;
+  width: 17mm;
+  padding: 1.6mm 0 1.4mm;
+}
+
+table.signs td:nth-child(2) { width: auto; }
+
+/* ---------- the one-page pin sheet ---------- */
+
+.onepager {
+  font-size: 10.7pt;
+  line-height: 1.5;
+}
+
+.onepager .masthead {
+  border-bottom-width: 2pt;
+  padding-bottom: 4mm;
+  margin-bottom: 3mm;
+}
+
+.onepager h1 {
+  font-size: 30pt;
+  letter-spacing: -0.025em;
+  margin-bottom: 3mm;
+}
+
+.onepager .kicker { margin-bottom: 4.5mm; }
+
+.onepager .deck {
+  font-size: 13.2pt;
+  line-height: 1.38;
+  max-width: 166mm;
+  color: var(--ink);
+}
+
+.onepager h2 {
+  font-size: 13pt;
+  margin: 6.5mm 0 3mm;
+}
+
+.onepager p { margin-bottom: 3.4mm; }
+
+.onepager table { font-size: 9.6pt; line-height: 1.42; }
+
+.onepager blockquote {
+  margin: 3.5mm 0 4.5mm;
+  padding: 3.2mm 5mm;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14pt;
+  line-height: 1.4;
+  border-top-width: 0.8pt;
+  border-bottom-width: 0.8pt;
+}
+
+.onepager ol {
+  list-style: none;
+  padding-left: 11mm;
+  counter-reset: step;
+  margin-bottom: 0;
+}
+
+.onepager ol > li {
+  counter-increment: step;
+  position: relative;
+  margin-bottom: 2.2mm;
+  break-inside: avoid;
+}
+
+.onepager ol > li::before {
+  content: counter(step);
+  position: absolute;
+  left: -11mm;
+  top: 0.1mm;
+  width: 8mm;
+  text-align: right;
+  font-size: 14pt;
+  font-weight: 800;
+  color: var(--grey-light);
+}
+
+.onepager .colophon { display: none; }
+
+/* ---------- page control ---------- */
+
+.newpage { break-before: page; }
+
+section { break-inside: auto; }
+
+@media screen {
+  body { max-width: 210mm; margin: 10mm auto; background: #fff; box-shadow: 0 2mm 8mm rgba(0,0,0,.12); padding: 17mm 16mm 20mm; }
+}
+
+</style>
+</head>
+<body class="onepager">
+<header class="masthead">
+  <div>
+    <div class="kicker">Organizational notes · Pin this above the desk</div>
+    <h1>How it works</h1>
+    <p class="deck">You keep one page that says what is still open and who owes it. Everything else exists to keep that page true.</p>
+  </div>
+  
+</header>
+<div class="meta">
+  <span>v1.2 · 2026-11-23 · A4 · black &amp; white</span>
+  <span>organizational-notes · fabiomatricardi</span>
+</div>
+
+<h2>Three sheets, three questions</h2>
+<table class="plain"><thead><tr><th>Sheet</th><th>The only question it answers</th><th>When</th></tr></thead><tbody><tr><td><strong>Whiteboard photo</strong></td><td>What did we agree this morning?</td><td>07:20, 10 seconds</td></tr><tr><td><strong>Kick-off grid</strong>, one per day</td><td>Who did I actually hear from today?</td><td>07:20, 2 minutes</td></tr><tr><td><strong>OPEN sheet</strong>, one per week</td><td>What is open, and who owes it?</td><td>all week, in pencil</td></tr></tbody></table>
+<p>The notebook stays closed. The app stays closed until the OPEN sheet has been true for a full week.</p>
+<h2>The week is a loop</h2>
+<ol>
+<li><strong>Monday 07:25, 10 minutes.</strong> New OPEN sheet: the week&#x27;s 3 targets, the two anchors, and only the lines still open.</li>
+<li><strong>Every morning 07:20, 2 minutes.</strong> Photograph the board. Beside each name on the grid, one line: what is new. No line means nothing new.</li>
+<li><strong>Whenever someone owes you something, one new row.</strong> What, who, when. Thirty seconds, immediately, never later.</li>
+<li><strong>When it closes, tick it.</strong> The same day, on the same page.</li>
+<li><strong>Friday 13:00, 10 minutes.</strong> Tick what closed, write the carry lines, write the report from the sheet, not from memory.</li>
+</ol>
+<h2>What goes on the OPEN sheet</h2>
+<p><strong>No date, no commitment.</strong> It is a note, and notes go in the notebook. The columns are the grammar: a name in WHO and a date in DUE is enough.</p>
+<blockquote><p><code>✓</code> closed · <code>?</code> waiting on them · <code>!</code> risk</p></blockquote>
+<p><strong>Before every power-up, ask what you are waiting for.</strong> Every answer is a row with a name and a date — that is how PTW stops being invisible.</p>
+
+
+<div class="colophon">
+  <span>Organizational notes · How it works</span>
+  <span>v1.2 · 2026-11-23 · A4</span>
+</div>
+</body>
+</html>

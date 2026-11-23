@@ -330,6 +330,98 @@ blockquote p { margin: 0; }
   break-inside: avoid;
 }
 
+/* ---------- marks of the one-pager ---------- */
+
+table.signs {
+  margin: 2mm 0 4.5mm;
+}
+
+table.signs td:first-child {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 15pt;
+  line-height: 1;
+  text-align: center;
+  width: 17mm;
+  padding: 1.6mm 0 1.4mm;
+}
+
+table.signs td:nth-child(2) { width: auto; }
+
+/* ---------- the one-page pin sheet ---------- */
+
+.onepager {
+  font-size: 10.7pt;
+  line-height: 1.5;
+}
+
+.onepager .masthead {
+  border-bottom-width: 2pt;
+  padding-bottom: 4mm;
+  margin-bottom: 3mm;
+}
+
+.onepager h1 {
+  font-size: 30pt;
+  letter-spacing: -0.025em;
+  margin-bottom: 3mm;
+}
+
+.onepager .kicker { margin-bottom: 4.5mm; }
+
+.onepager .deck {
+  font-size: 13.2pt;
+  line-height: 1.38;
+  max-width: 166mm;
+  color: var(--ink);
+}
+
+.onepager h2 {
+  font-size: 13pt;
+  margin: 6.5mm 0 3mm;
+}
+
+.onepager p { margin-bottom: 3.4mm; }
+
+.onepager table { font-size: 9.6pt; line-height: 1.42; }
+
+.onepager blockquote {
+  margin: 3.5mm 0 4.5mm;
+  padding: 3.2mm 5mm;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14pt;
+  line-height: 1.4;
+  border-top-width: 0.8pt;
+  border-bottom-width: 0.8pt;
+}
+
+.onepager ol {
+  list-style: none;
+  padding-left: 11mm;
+  counter-reset: step;
+  margin-bottom: 0;
+}
+
+.onepager ol > li {
+  counter-increment: step;
+  position: relative;
+  margin-bottom: 2.2mm;
+  break-inside: avoid;
+}
+
+.onepager ol > li::before {
+  content: counter(step);
+  position: absolute;
+  left: -11mm;
+  top: 0.1mm;
+  width: 8mm;
+  text-align: right;
+  font-size: 14pt;
+  font-weight: 800;
+  color: var(--grey-light);
+}
+
+.onepager .colophon { display: none; }
+
 /* ---------- page control ---------- */
 
 .newpage { break-before: page; }
@@ -352,7 +444,7 @@ section { break-inside: auto; }
   <div class="bignum">02</div>
 </header>
 <div class="meta">
-  <span>v1.1 · 2026-11-20 · A4 · black &amp; white</span>
+  <span>v1.2 · 2026-11-23 · A4 · black &amp; white</span>
   <span>organizational-notes · fabiomatricardi</span>
 </div>
 
@@ -418,7 +510,7 @@ section { break-inside: auto; }
 </div>
 <div class="colophon">
   <span>Organizational notes · Legend and worked examples</span>
-  <span>v1.1 · 2026-11-20 · A4</span>
+  <span>v1.2 · 2026-11-23 · A4</span>
 </div>
 </body>
 </html>

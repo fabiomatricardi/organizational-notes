@@ -36,10 +36,22 @@ EDGE_CANDIDATES = [
     Path(r"C:\Program Files\Microsoft\Edge\Application\msedge.exe"),
 ]
 
-VERSION = "1.1"
+VERSION = "1.2"
 TODAY = date.today().isoformat()
 
 DOCS = [
+    {
+        "key": "00",
+        "src": DOCS_DIR / "00-how-it-works.md",
+        "out": "00-how-it-works",
+        "kicker": "Organizational notes · Pin this above the desk",
+        "deck": "You keep one page that says what is still open and who owes it. Everything else exists to keep that page true.",
+        "footer": "How it works",
+        "breaks": [],
+        "notes": 0,
+        "onepager": True,
+        "bignum": "",
+    },
     {
         "key": "02",
         "src": DOCS_DIR / "02-legend-and-examples.md",
@@ -335,6 +347,10 @@ def build_html(doc: dict) -> str:
             "</div>"
         )
 
+    body_class = ' class="onepager"' if doc.get("onepager") else ""
+    bignum = doc.get("bignum", doc["key"])
+    bignum_html = f'<div class="bignum">{bignum}</div>' if bignum else ""
+
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -344,14 +360,14 @@ def build_html(doc: dict) -> str:
 {css}
 </style>
 </head>
-<body>
+<body{body_class}>
 <header class="masthead">
   <div>
     <div class="kicker">{html.escape(doc['kicker'])}</div>
     <h1>{html.escape(doc['footer'])}</h1>
     <p class="deck">{html.escape(doc['deck'])}</p>
   </div>
-  <div class="bignum">{doc['key']}</div>
+  {bignum_html}
 </header>
 <div class="meta">
   <span>v{VERSION} · {TODAY} · A4 · black &amp; white</span>

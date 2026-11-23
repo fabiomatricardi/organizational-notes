@@ -2,6 +2,8 @@
 
 **Purpose:** stop holding the ship in your head. Capture in seconds, keep one page that is always true, and let Friday 14:00 be a by-product instead of a reconstruction.
 
+**Start here:** if this document feels like too much, read the one-page version — [`print/00-how-it-works.pdf`](print/00-how-it-works.pdf) — and pin it above the desk. This file is the reference behind it, not the daily tool.
+
 **One idea:** three artefacts, three jobs. Never let one do another's work.
 
 | Artefact | Its only job | Lives | Refreshed |

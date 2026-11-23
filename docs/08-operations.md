@@ -61,7 +61,7 @@ The two reference documents have a print pipeline (no external dependencies):
 .venv\Scripts\python.exe tools\build_print.py --no-pdf   # HTML only
 ```
 
-- Sources: `docs/02-legend-and-examples.md`, `docs/03-first-two-weeks.md`.
+- Sources: `docs/00-how-it-works.md` (one page), `docs/02-legend-and-examples.md`, `docs/03-first-two-weeks.md`.
 - Style: `tools/print.css` (black/white/grey, A4, fixed margins, page-break rules).
 - Output: `docs/print/<name>.html` and `.pdf`.
 - PDF is produced by Microsoft Edge in headless mode (`--print-to-pdf`). If Edge is busy or hangs, the script retries once with a fresh profile; close stray headless Edge processes if it still fails.
