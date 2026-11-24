@@ -1,6 +1,8 @@
 # First two weeks, step by step
 
-Do not change everything on day one. Week 1 is **capture + the A4**, nothing else. Week 2 adds the Friday loop. Week 3 is a review where you cut what you did not use.
+Do not change everything on day one. Week 1 is **capture + the OPEN sheet**, nothing else. Week 2 adds the Friday loop. Week 3 is a review where you cut what you did not use.
+
+**Read one tutorial card before each day.** [`10-scenarios.md`](10-scenarios.md) holds six situations, about a minute each: Monday's card on Sunday night, Tuesday's on Monday night, and so on. The tutorial video is the same six scenes, watched once.
 
 ---
 

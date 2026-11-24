@@ -1,0 +1,21 @@
+{
+  "name": "better-note-taking-tutorial",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Six scenes, one week — the paper method as a silent video",
+  "scripts": {
+    "studio": "remotion studio src/index.ts --browser-executable=\"C:/Program Files/Google/Chrome/Application/chrome.exe\"",
+    "render": "remotion render src/index.ts Tutorial out/tutorial.mp4 --codec=h264 --crf=18 --browser-executable=\"C:/Program Files/Google/Chrome/Application/chrome.exe\"",
+    "still": "remotion still src/index.ts Tutorial out/still.png --browser-executable=\"C:/Program Files/Google/Chrome/Application/chrome.exe\""
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.546",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.546"
+  },
+  "devDependencies": {
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0"
+  }
+}

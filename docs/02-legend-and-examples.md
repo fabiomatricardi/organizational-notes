@@ -11,7 +11,7 @@ Print this and keep it on the clipboard, or stick it inside the front of the A5.
 | `⇒` | **someone else** must do something | name + verb + object + date |
 | `?` | you are waiting, or nobody answered | question + who + since when |
 | `!` | risk, issue, escalation | risk + consequence + date it bites |
-| `✓` | it is finished | cross the line on the A4 |
+| `✓` | it is finished | cross the line on the OPEN sheet |
 
 Plus `@name` at the start when the line is about a person (a commitment, an ask, a personal note).
 
@@ -51,7 +51,7 @@ Three things this board proves, and the reason the sheet exists:
 
 1. Photo the board. Do not transcribe it.
 2. On the kick-off grid, one line per person — only what they said that is new or that they owe.
-3. After the meeting, move only `⇒` / `→` / `?` / `!` onto the A4 register. The board's area blocks are status, not commitments; they belong in the day's LOG entry, not in the register.
+3. After the meeting, move only `⇒` / `→` / `?` / `!` onto the **OPEN sheet**. The board's area blocks are status, not commitments; they belong in the day's LOG entry, not in the register.
 
 ---
 

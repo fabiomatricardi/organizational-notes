@@ -24,6 +24,7 @@ Ordered by value, not by ambition. Everything here is optional: the paper half w
 - [ ] **Board photo OCR (optional).** Let the LLM extract `⇒` and `!` lines from the whiteboard photo into the inbox. Only after the grammar is stable.
 - [ ] **Stale-report nudge.** Friday 12:00: warn if fewer than N entries exist this week (catches the 17-day gap).
 - [ ] **Area dashboards** in the app (read-only) if the leads ever need to see them.
+- [ ] **Tutorial in the app.** Embed the six scenes in a Help tab with `@remotion/player` — the same composition, no re-authoring. Only worth doing if someone other than Fabio ever runs the system.
 
 ## Explicit non-goals
 

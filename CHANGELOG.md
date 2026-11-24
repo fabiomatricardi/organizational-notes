@@ -2,6 +2,24 @@
 
 All notable changes to this project. Dates are local (KST).
 
+## [1.4.0] — 2026-11-24
+
+### Added
+- **The tutorial.** `docs/10-scenarios.md` — six situations from one week, one card per working day, with the print edition `docs/print/10-scenarios.pdf` (4 pages). It is the method at the moment it is needed, not another reference.
+- **The video.** `video/` — the same six scenes as a silent 16:9 composition in Remotion 4 (`npm.cmd run render` → `video/out/tutorial.mp4`, about three minutes). Content lives in `video/src/script.ts`; scene durations derive from the script.
+- **Ideas have a home.** `docs/01-method.md` gains "Where ideas go": no date and no owner → the back pages of the **Notebook**, with three fates on Friday (dead, `→` on the OPEN sheet, `ROADMAP.md`).
+- Rule 11: an idea never touches the **OPEN sheet**.
+
+### Changed
+- `docs/01-method.md` — ten rules → **eleven**.
+- `README.md` — quick start points at the tutorial; repository map, documentation table and print table updated; four artefacts instead of three, eleven rules instead of seven.
+- `docs/08-operations.md` — how to build the cards and the video, including the corporate-proxy workaround (`--browser-executable`).
+- `tools/build_print.py` — `DOCS` gains document `10`; print version 1.4.
+
+### Notes
+- Remotion's own browser download fails behind the TLS proxy (`unable to get local issuer certificate`); the npm scripts render with the installed Chrome.
+- `video/out/` is gitignored — the MP4 is a build artefact, not source.
+
 ## [1.3.0] — 2026-11-24
 
 ### Added

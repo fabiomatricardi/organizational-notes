@@ -2,7 +2,7 @@
 
 A note-taking and follow-up system for an instrumentation & control discipline superintendent on an FLNG project under construction: **one A4 register on the desk, one printed kick-off grid, a Telegram inbox, and a local desktop app that keeps the register honest.**
 
-Status: **v1.1** — 2026-11-20. Single user, local SQLite, no cloud required.
+Status: **v1.4** — 2026-11-24. Single user, local SQLite, no cloud required.
 
 ---
 
@@ -14,14 +14,16 @@ At 20 people you can hold the open loops in your head. At 100 (June 2027) you ca
 2. **Registration is transcription** — notes exist but never reach the app, because the app needs a laptop and 20 quiet minutes.
 3. **Follow-up has no register** — you chase from memory. The app's own history shows the symptom: 303 entries, 4 open items.
 
-The system separates those three jobs into three artefacts, each with one job.
+The system separates those three jobs into four artefacts, each with one job.
 
 ## The 60-second method
 
 **Capture** in five seconds on the phone (Telegram bot → Inbox).
-**Keep one page that is always true**: the A4 *OPEN sheet* — commitments on the left, people on the right — rewritten every Monday, only live items crossing over.
-**Register** for 20 minutes at 16:30: new commitments (owner + next check), closures, one 5-line day LOG, and the nudges sent *before* the laptop closes.
-**Close the week** on Friday in 15 minutes: the report is generated from the register, not reconstructed from memory.
+**Keep one page that is always true**: the **OPEN sheet** — commitments on the left, people on the right — rewritten every Monday, only live items crossing over.
+**Write what is new** on today's pre-dated **Kick-off grid**, one line per person. Blank is information.
+**Keep the day** on the **Notebook**: appointments, decisions, three lines at 16:30.
+**Register** for 10–20 minutes at 16:30: new commitments (owner + next check), closures, and the nudges sent *before* the laptop closes.
+**Close the week** on Friday in 15 minutes: the report is generated from the **OPEN sheet**, not reconstructed from memory.
 
 Marks: `•` fact · `→` my action · `⇒` their action + name + date · `?` waiting · `!` risk · `✓` closed · `@name` person.
 
@@ -30,10 +32,11 @@ Marks: `•` fact · `→` my action · `⇒` their action + name + date · `?` 
 ## Quick start
 
 1. Read [`docs/00-overview.md`](docs/00-overview.md) and [`docs/01-method.md`](docs/01-method.md).
-2. Build the week: `.venv\Scripts\python.exe tools\build_week_pack.py` — one **OPEN sheet** (A4 landscape) and **five pre-dated Kick-off grids** (A4 portrait), names already printed. The `.html` versions let you change the team list once.
-3. Start the app: `run-dev.bat` (dev) or `run-build.bat` then `run-prod.bat` (`.exe`). It opens on `http://localhost:8855`.
-4. Set the Telegram bot token in **Settings → Telegram Capture** — see [`docs/07-telegram-setup.md`](docs/07-telegram-setup.md).
-5. Follow week 1 of [`docs/03-first-two-weeks.md`](docs/03-first-two-weeks.md). Do not skip to week 2.
+2. Watch the tutorial once ([`docs/print/10-scenarios.pdf`](docs/print/10-scenarios.pdf), or `video/out/tutorial.mp4`): six situations, three minutes. It is the method in the moments you will actually meet.
+3. Build the week: `.venv\Scripts\python.exe tools\build_week_pack.py` — one **OPEN sheet** (A4 landscape) and **five pre-dated Kick-off grids** (A4 portrait), names already printed. The `.html` versions let you change the team list once.
+4. Start the app: `run-dev.bat` (dev) or `run-build.bat` then `run-prod.bat` (`.exe`). It opens on `http://localhost:8855`.
+5. Set the Telegram bot token in **Settings → Telegram Capture** — see [`docs/07-telegram-setup.md`](docs/07-telegram-setup.md).
+6. Follow week 1 of [`docs/03-first-two-weeks.md`](docs/03-first-two-weeks.md). Do not skip to week 2.
 
 ## The app in one table
 
@@ -57,6 +60,9 @@ backend/              FastAPI + SQLite (routers, services, schema, Telegram poll
 frontend/             Vue 3 + Vite (views, API client, styles)
 data/                 runtime data: personal_log.db, backups/, conversations/, inbox/ (gitignored)
 templates/            printable A4 sheets (html + pdf, plus the weekly pack)
+tools/                print renderer, weekly pack builder, CSS
+video/                the tutorial video: Remotion source, out/ gitignored
+learning/             photographs of the paper in use (local, only the index is tracked)
 reference/            personal_log.sample.db — a 302-entry sample, no live data
 docs/                 the method, the app, the architecture, the operations manual
 config.json           local config incl. API keys and bot token (gitignored)
@@ -70,16 +76,17 @@ run-prod.bat          launch the built .exe
 
 | Document | What it answers |
 |---|---|
-| [`docs/00-overview.md`](docs/00-overview.md) | Why three registers, how the pieces fit, glossary |
-| [`docs/01-method.md`](docs/01-method.md) | The daily and weekly method, the seven rules |
+| [`docs/00-overview.md`](docs/00-overview.md) | Why four artefacts, how the pieces fit, glossary |
+| [`docs/01-method.md`](docs/01-method.md) | The daily and weekly method, the eleven rules |
 | [`docs/02-legend-and-examples.md`](docs/02-legend-and-examples.md) | The marks, with the whiteboards rewritten line by line |
 | [`docs/03-first-two-weeks.md`](docs/03-first-two-weeks.md) | Setup and a day-by-day rollout, plus recovery rules |
 | [`docs/04-app-guide.md`](docs/04-app-guide.md) | Every screen, the 16:30 ritual, weekly report, handover |
 | [`docs/05-architecture.md`](docs/05-architecture.md) | Stack, modules, startup, Telegram poller, frozen vs dev |
 | [`docs/06-data-model.md`](docs/06-data-model.md) | Tables, columns, statuses, migrations, mark → row mapping |
 | [`docs/07-telegram-setup.md`](docs/07-telegram-setup.md) | BotFather to first captured line, in 10 minutes |
-| [`docs/08-operations.md`](docs/08-operations.md) | Run, build, backup, restore, publish, troubleshoot |
+| [`docs/08-operations.md`](docs/08-operations.md) | Run, build, backup, restore, publish, the video, troubleshoot |
 | [`docs/09-scaling-to-100.md`](docs/09-scaling-to-100.md) | What changes when the team is 100 |
+| [`docs/10-scenarios.md`](docs/10-scenarios.md) | The tutorial: six situations from one week, one per working day |
 | [`docs/decisions.md`](docs/decisions.md) | The six design decisions and what was rejected |
 | [`CHANGELOG.md`](CHANGELOG.md) | What changed, when |
 | [`ROADMAP.md`](ROADMAP.md) | Now / next / later |
@@ -89,6 +96,7 @@ run-prod.bat          launch the built .exe
 | Document | File |
 |---|---|
 | **How it works** — pin sheet + the three questions | [`docs/print/00-how-it-works.pdf`](docs/print/00-how-it-works.pdf) |
+| **Six scenes, one week** — the tutorial cards | [`docs/print/10-scenarios.pdf`](docs/print/10-scenarios.pdf) |
 | Legend and worked examples | [`docs/print/02-legend-and-examples.pdf`](docs/print/02-legend-and-examples.pdf) |
 | First two weeks, step by step | [`docs/print/03-first-two-weeks.pdf`](docs/print/03-first-two-weeks.pdf) |
 
@@ -103,7 +111,7 @@ Black, white and grey only; A4; no dependencies. Rebuild after editing the Markd
 
 ## Stack
 
-Python 3.12+, FastAPI, aiosqlite, httpx · Vue 3, Vite, PrimeIcons · PyInstaller for the standalone build.
+Python 3.12+, FastAPI, aiosqlite, httpx · Vue 3, Vite, PrimeIcons · PyInstaller for the standalone build · Remotion 4 + React 19 for the tutorial video (Node 24).
 
 ## License
 

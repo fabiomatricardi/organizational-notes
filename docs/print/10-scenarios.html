@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Six scenes, one week</title>
+<style>
+/* Print stylesheet for the organizational-notes documents.
+   Black, white and grey only - safe on any mono laser printer. */
+
+@page {
+  size: A4;
+  margin: 17mm 16mm 20mm;
+}
+
+:root {
+  --ink: #111111;
+  --ink-soft: #3c3c3c;
+  --grey: #6f6f6f;
+  --grey-light: #b9b9b9;
+  --rule: #cfcfcf;
+  --wash: #f4f4f4;
+  --wash-2: #fafafa;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-size: 9.6pt;
+  line-height: 1.44;
+  color: var(--ink);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ---------- cover / masthead ---------- */
+
+.masthead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10mm;
+  border-bottom: 1.4pt solid var(--ink);
+  padding-bottom: 4mm;
+  margin-bottom: 2.5mm;
+}
+
+.kicker {
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 4mm;
+}
+
+h1 {
+  font-size: 23pt;
+  line-height: 1.06;
+  letter-spacing: -0.018em;
+  font-weight: 800;
+  margin: 0 0 3mm;
+}
+
+.deck {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 11.2pt;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  max-width: 128mm;
+  margin: 0;
+}
+
+.bignum {
+  font-size: 62pt;
+  line-height: 0.78;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #e4e4e4;
+  flex-shrink: 0;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 7pt;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 7mm;
+}
+
+/* ---------- headings ---------- */
+
+h2 {
+  counter-increment: section;
+  display: flex;
+  align-items: baseline;
+  gap: 3mm;
+  font-size: 13pt;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  margin: 7.5mm 0 3mm;
+  padding-bottom: 1.8mm;
+  border-bottom: 0.7pt solid var(--ink);
+  break-after: avoid;
+}
+
+h2::before {
+  content: counter(section, decimal-leading-zero);
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--grey);
+  flex-shrink: 0;
+}
+
+body { counter-reset: section; }
+
+h3 {
+  font-size: 10.2pt;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin: 6mm 0 2mm;
+  break-after: avoid;
+}
+
+h3::before {
+  content: "";
+  display: inline-block;
+  width: 2.4mm;
+  height: 2.4mm;
+  background: var(--ink);
+  margin-right: 2.4mm;
+  vertical-align: 0.2mm;
+}
+
+/* ---------- text ---------- */
+
+p { margin: 0 0 3mm; orphans: 2; widows: 2; }
+
+p.note {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  color: var(--grey);
+  font-size: 9.6pt;
+}
+
+strong { font-weight: 700; }
+
+a { color: inherit; text-decoration: none; border-bottom: 0.4pt dotted var(--grey); }
+
+code {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 8.7pt;
+  color: var(--ink);
+  word-break: break-word;
+}
+
+hr {
+  border: 0;
+  border-top: 0.5pt solid var(--rule);
+  margin: 6mm 0;
+}
+
+/* ---------- lists ---------- */
+
+ul, ol { margin: 0 0 3.5mm; padding-left: 5.5mm; }
+
+li { margin-bottom: 1.4mm; break-inside: avoid; }
+
+ul li::marker { color: var(--grey-light); }
+
+li.task {
+  list-style: none;
+  margin-left: -5.5mm;
+  padding-left: 7mm;
+  position: relative;
+}
+
+li.task .box {
+  position: absolute;
+  left: 0;
+  top: 0.55mm;
+  width: 3.4mm;
+  height: 3.4mm;
+  border: 0.7pt solid var(--ink);
+}
+
+/* ---------- tables ---------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2mm 0 4mm;
+  font-size: 8.7pt;
+  line-height: 1.36;
+  break-inside: auto;
+}
+
+thead { display: table-header-group; }
+
+tr { break-inside: avoid; }
+
+thead th {
+  text-align: left;
+  font-size: 6.8pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: var(--wash);
+  padding: 1.8mm 2.4mm;
+  border-bottom: 0.8pt solid var(--ink);
+  vertical-align: bottom;
+}
+
+tbody td {
+  padding: 1.9mm 2.4mm;
+  border-bottom: 0.4pt solid var(--rule);
+  vertical-align: top;
+}
+
+tbody tr:nth-child(even) td { background: var(--wash-2); }
+
+tbody tr:last-child td { border-bottom: 0.8pt solid var(--ink); }
+
+/* map tables: "what the board says" vs "what you write" */
+
+table.map td:first-child {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  color: var(--grey);
+  width: 44%;
+}
+
+table.map td:last-child {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 8.4pt;
+}
+
+/* marks table */
+
+table.marks td:first-child {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 17pt;
+  line-height: 1;
+  text-align: center;
+  width: 11mm;
+  padding-top: 1.6mm;
+}
+
+table.marks td:nth-child(2) { width: 40%; }
+table.marks td:nth-child(3) { font-family: Georgia, serif; font-style: italic; color: var(--ink-soft); }
+
+/* app-mapping table: mark in mono */
+
+table.app td:first-child {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 10pt;
+  text-align: center;
+  width: 14mm;
+}
+
+/* ---------- callouts ---------- */
+
+.callout {
+  background: var(--wash);
+  border-left: 2.2pt solid var(--ink);
+  padding: 3mm 3.6mm;
+  margin: 3.5mm 0 4mm;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10.4pt;
+  line-height: 1.45;
+  break-inside: avoid;
+}
+
+.callout strong { font-family: "Segoe UI", Arial, sans-serif; font-size: 8pt; letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 1.2mm; }
+
+blockquote {
+  margin: 5mm 0;
+  padding: 5mm 6mm;
+  border-top: 0.8pt solid var(--ink);
+  border-bottom: 0.8pt solid var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11pt;
+  line-height: 1.45;
+  break-inside: avoid;
+}
+
+blockquote p { margin: 0; }
+
+/* ---------- notes area ---------- */
+
+.notes {
+  margin-top: 9mm;
+  break-inside: avoid;
+}
+
+.notes-label {
+  font-size: 6.6pt;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 2.5mm;
+}
+
+.rule-line {
+  height: 8.6mm;
+  border-bottom: 0.4pt solid #dedede;
+}
+
+/* ---------- colophon ---------- */
+
+.colophon {
+  margin-top: 9mm;
+  padding-top: 1.8mm;
+  border-top: 0.5pt solid var(--rule);
+  font-size: 6.6pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grey);
+  display: flex;
+  justify-content: space-between;
+  break-inside: avoid;
+}
+
+/* ---------- marks of the one-pager ---------- */
+
+table.signs {
+  margin: 2mm 0 4.5mm;
+}
+
+table.signs td:first-child {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 15pt;
+  line-height: 1;
+  text-align: center;
+  width: 17mm;
+  padding: 1.6mm 0 1.4mm;
+}
+
+table.signs td:nth-child(2) { width: auto; }
+
+/* ---------- the one-page pin sheet ---------- */
+
+.onepager {
+  font-size: 10.7pt;
+  line-height: 1.5;
+}
+
+.onepager .masthead {
+  border-bottom-width: 2pt;
+  padding-bottom: 4mm;
+  margin-bottom: 3mm;
+}
+
+.onepager h1 {
+  font-size: 30pt;
+  letter-spacing: -0.025em;
+  margin-bottom: 3mm;
+}
+
+.onepager .kicker { margin-bottom: 4.5mm; }
+
+.onepager .deck {
+  font-size: 13.2pt;
+  line-height: 1.38;
+  max-width: 166mm;
+  color: var(--ink);
+}
+
+.onepager h2 {
+  font-size: 13pt;
+  margin: 6.5mm 0 3mm;
+}
+
+.onepager p { margin-bottom: 3.4mm; }
+
+.onepager table { font-size: 9.6pt; line-height: 1.42; }
+
+.onepager blockquote {
+  margin: 3.5mm 0 4.5mm;
+  padding: 3.2mm 5mm;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14pt;
+  line-height: 1.4;
+  border-top-width: 0.8pt;
+  border-bottom-width: 0.8pt;
+}
+
+.onepager ol {
+  list-style: none;
+  padding-left: 11mm;
+  counter-reset: step;
+  margin-bottom: 0;
+}
+
+.onepager ol > li {
+  counter-increment: step;
+  position: relative;
+  margin-bottom: 2.2mm;
+  break-inside: avoid;
+}
+
+.onepager ol > li::before {
+  content: counter(step);
+  position: absolute;
+  left: -11mm;
+  top: 0.1mm;
+  width: 8mm;
+  text-align: right;
+  font-size: 14pt;
+  font-weight: 800;
+  color: var(--grey-light);
+}
+
+.onepager .colophon { display: none; }
+
+/* page two: reference, set smaller than the poster above it */
+
+.onepager h2.newpage { margin-top: 0; }
+
+.onepager h2.newpage ~ p,
+.onepager h2.newpage ~ li {
+  font-size: 9.1pt;
+  line-height: 1.40;
+}
+
+.onepager h2.newpage ~ p { margin-bottom: 2.6mm; }
+
+.onepager h2.newpage ~ h3 {
+  font-size: 10pt;
+  margin: 2.6mm 0 1.2mm;
+}
+
+.onepager h2.newpage ~ table { font-size: 8.4pt; }
+
+.onepager h2.newpage ~ table thead th { padding: 1.6mm 2.2mm; }
+
+.onepager h2.newpage ~ table tbody td { padding: 1.6mm 2.2mm; }
+
+.onepager h2.newpage ~ ul,
+.onepager h2.newpage ~ ol { margin-bottom: 2.4mm; }
+
+.onepager h2.newpage ~ ul > li,
+.onepager h2.newpage ~ ol > li { margin-bottom: 1.7mm; }
+
+/* page two uses native list numbers: an absolutely positioned
+   ::before can be orphaned onto the next page at a break */
+
+.onepager h2.newpage ~ ol {
+  list-style: decimal;
+  padding-left: 7.5mm;
+  counter-reset: none;
+}
+
+.onepager h2.newpage ~ ol > li { counter-increment: none; }
+
+.onepager h2.newpage ~ ol > li::before { content: none; }
+
+.onepager h2.newpage ~ ol > li::marker {
+  color: var(--grey);
+  font-weight: 700;
+}
+
+/* ---------- page control ---------- */
+
+.newpage { break-before: page; }
+
+section { break-inside: auto; }
+
+@media screen {
+  body { max-width: 210mm; margin: 10mm auto; background: #fff; box-shadow: 0 2mm 8mm rgba(0,0,0,.12); padding: 17mm 16mm 20mm; }
+}
+
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div>
+    <div class="kicker">Organizational notes · Tutorial 10</div>
+    <h1>Six scenes, one week</h1>
+    <p class="deck">Six situations from one week. Read the card before the day it belongs to, not all six on Sunday.</p>
+  </div>
+  <div class="bignum">10</div>
+</header>
+<div class="meta">
+  <span>v1.4 · 2026-11-24 · A4 · black &amp; white</span>
+  <span>organizational-notes · fabiomatricardi</span>
+</div>
+
+<p><strong>Purpose:</strong> the method is written as rules, but rules are learned at the moment they are needed. This is the tutorial: six situations you will actually meet in the first week, each one small enough to read in a minute, each one with the reflex it replaces.</p>
+<p><strong>How to use it:</strong> read one card before the day it belongs to. Do not read all six at once — that is the same mistake as reading the method on Sunday and expecting it to stick. The video is the same six scenes, watched once.</p>
+<p><strong>The one line behind all six:</strong> the <strong>Kick-off grid</strong> is what they said today. The <strong>OPEN sheet</strong> is what they owe, and by when. The <strong>Notebook</strong> is what happened. Nothing else holds state.</p>
+<h2>1 · Monday 06:55 — the week is already printed</h2>
+<p><strong>Situation.</strong> Coffee, desk, and the old reflex arrives: build the week. A blank page, eleven names to write, dates to work out, and by the time it is ready the board has started.</p>
+<p><strong>What you do.</strong></p>
+<ol>
+<li>Take the pack printed on Sunday: one <strong>OPEN sheet</strong>, five <strong>Kick-off grids</strong>, already dated, names already printed.</li>
+<li>Write the week&#x27;s <strong>3 targets</strong> at the top of the <strong>OPEN sheet</strong>, each with a date.</li>
+<li>Write the fixed points into <code>TODAY&#x27;S 3</code> on the right day — the TBT on Tuesday, SHI on Thursday, Thierry Friday 14:00.</li>
+<li>Stop at ten minutes.</li>
+</ol>
+<p><strong>What you do not do.</strong> Copy last week&#x27;s page line by line. Write the eleven names again. Build a separate calendar for the week&#x27;s appointments.</p>
+<p><strong>Where it lands.</strong> Targets → <strong>OPEN sheet</strong>. Appointments → <code>TODAY&#x27;S 3</code>. Nothing → the app.</p>
+<p><strong>Why.</strong> The only decision on Monday morning is <em>what are the three outcomes</em>. The paperwork was decided on Sunday.</p>
+<h2 class="newpage">2 · 07:20 — &quot;PTW, still waiting&quot;</h2>
+<p><strong>Situation.</strong> The board ends. Khang says the PTW for the FIR room is still not issued, and he has no date. You have thirty seconds before the walkdown starts.</p>
+<p><strong>What you do.</strong></p>
+<ol>
+<li>On today&#x27;s <strong>Kick-off grid</strong>, beside Khang, one line: <code>⇒ Khang: PTW FIR room — date TBC</code>.</li>
+<li>Before the walkdown, one row on the <strong>OPEN sheet</strong>: what, WHO <code>Khang</code>, and a DUE date. You set the date, not him — <code>26.11</code>.</li>
+<li>If the room is on the power-up path, add <code>!</code> and circle the date.</li>
+</ol>
+<p><strong>What you do not do.</strong> Leave the line on the grid and hope to remember it. Write &quot;PTW issue&quot; with no name. Wait for a date to arrive by itself.</p>
+<p><strong>Where it lands.</strong> The <strong>Kick-off grid</strong> keeps what he said today. The <strong>OPEN sheet</strong> keeps what he owes, and by when.</p>
+<p><strong>Why.</strong> A line with no date on the <strong>Kick-off grid</strong> is a memory. The same line with a date on the <strong>OPEN sheet</strong> is a follow-up. The grid is the doorway; the OPEN sheet is the room.</p>
+<h2>3 · 10:40 — the idea in the corridor</h2>
+<p><strong>Situation.</strong> Walking back from the ECC room you think: a 5S campaign in there would end the cable mess. Nobody owes anything. There is no date. It is not a commitment, and it is too good to lose.</p>
+<p><strong>What you do.</strong></p>
+<ol>
+<li>Back at the desk, on the back page of the <strong>Notebook</strong>: <code>24.11 IDEA 5S campaign, ECC room</code>.</li>
+<li>Nothing else. It does not touch the <strong>OPEN sheet</strong>.</li>
+<li>On <strong>Friday 13:00</strong> it gets one of three fates: struck out, turned into <code>→ me: draft 5S plan for ECC — 09.12</code> on the <strong>OPEN sheet</strong>, or moved to <code>ROADMAP.md</code> if it is about the system rather than the ship.</li>
+</ol>
+<p><strong>What you do not do.</strong> Start a second list for ideas. Put an undated idea in the DUE column. Feel obliged to act on it this week.</p>
+<p><strong>Where it lands.</strong> The back of the <strong>Notebook</strong>, until Friday decides.</p>
+<p><strong>Why.</strong> The <strong>OPEN sheet</strong> only holds things someone owes. An idea sitting in that column is a lie with a date on it — and the first time one slips, you stop trusting the page.</p>
+<h2 class="newpage">4 · 13:10 — the target that moves</h2>
+<p><strong>Situation.</strong> Target 3 is <em>AIR LWN ready &amp; signed, 26.11</em>. At 13:10 the power-up is cancelled: conditions not met. The week&#x27;s third outcome is no longer true.</p>
+<p><strong>What you do.</strong></p>
+<ol>
+<li>Strike through target 3. Do not erase it, do not reword it quietly.</li>
+<li>Write the new outcome beside it, with the date and the reason: <code>3 AIR LWN readiness check · 23.11 pm, power-up off (conditions)</code>.</li>
+<li>One <code>•</code> line on the <strong>Notebook</strong> page: the decision, who took it, when.</li>
+<li>Update the <strong>OPEN sheet</strong> rows that depended on the power-up date.</li>
+</ol>
+<p><strong>What you do not do.</strong> Rewrite the target cleanly so the change disappears. Leave the old date in the DUE column. Explain it on Friday from memory.</p>
+<p><strong>Where it lands.</strong> The <strong>OPEN sheet</strong> keeps both versions, struck and new. The <strong>Notebook</strong> keeps the decision.</p>
+<p><strong>Why.</strong> On Friday the report can say <em>target changed on the 23rd, power-up cancelled on conditions</em> without you reconstructing anything. The strikethrough is the audit trail.</p>
+<h2>5 · 16:30 — three lines, not an essay</h2>
+<p><strong>Situation.</strong> End of the day. Eight things happened, none of them are on paper, and the temptation is to write the day down properly.</p>
+<p><strong>What you do.</strong></p>
+<ol>
+<li>On today&#x27;s <strong>Notebook</strong> page, three <code>•</code> lines: <code>done</code>, <code>moved</code>, <code>blocked</code>. One line each.</li>
+<li>Tomorrow&#x27;s appointments into tomorrow&#x27;s <code>TODAY&#x27;S 3</code>.</li>
+<li>Send the nudges for everything due today, before the laptop closes.</li>
+</ol>
+<p><strong>What you do not do.</strong> Retell the day. Write a page. Leave the nudges for tomorrow morning.</p>
+<p><strong>Where it lands.</strong> The <strong>Notebook</strong> holds the day&#x27;s record. The <strong>OPEN sheet</strong> holds what is still owed.</p>
+<p><strong>Why.</strong> The three lines are the raw material for Friday. If Tuesday is not a line, Friday is fiction.</p>
+<h2 class="newpage">6 · Friday 13:00 — the report writes itself</h2>
+<p><strong>Situation.</strong> 13:00. Thierry at 14:00. The old panic: what did we actually achieve this week?</p>
+<p><strong>What you do.</strong></p>
+<ol>
+<li><strong>OPEN sheet:</strong> tick <code>✓</code> what closed, mark <code>✗</code> what did not, read the struck-through targets.</li>
+<li><strong>Notebook:</strong> read the week&#x27;s <code>•</code> and <code>!</code> lines. Write three lines: done / blocked / risk.</li>
+<li>Assemble the report from those lines, in Thierry&#x27;s fixed format. Fifteen minutes.</li>
+<li>Close the laptop. 14:00 is now a meeting, not a reconstruction.</li>
+</ol>
+<p><strong>What you do not do.</strong> Rely on memory. Invent a new report format. Carry open rows in silence — every open row either gets a new date or becomes next week&#x27;s line.</p>
+<p><strong>Where it lands.</strong> The weekly report, generated from the <strong>OPEN sheet</strong> and the <strong>Notebook</strong>, not from recall.</p>
+<p><strong>Why.</strong> If Friday is hard, the failure happened on Tuesday at 16:30, not on Friday.</p>
+<hr>
+<h3>If only one thing survives</h3>
+<blockquote><p>The <strong>Kick-off grid</strong> is what they said. The <strong>OPEN sheet</strong> is what they owe. The <strong>Notebook</strong> is what happened.</p></blockquote>
+<p>The <strong>OPEN sheet</strong> is the only page you read. If it is true on Friday, the week was captured. If it is not, no report format will save it.</p>
+<p><strong>The video</strong> is these six scenes, silent, five minutes, watched once. <strong>The rules</strong> behind them are in <a href="01-method.md"><code>01-method.md</code></a> — read them when a scene does not cover your case.</p>
+
+
+<div class="colophon">
+  <span>Organizational notes · Six scenes, one week</span>
+  <span>v1.4 · 2026-11-24 · A4</span>
+</div>
+</body>
+</html>

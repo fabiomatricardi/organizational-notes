@@ -36,7 +36,7 @@ EDGE_CANDIDATES = [
     Path(r"C:\Program Files\Microsoft\Edge\Application\msedge.exe"),
 ]
 
-VERSION = "1.3"
+VERSION = "1.4"
 TODAY = date.today().isoformat()
 
 DOCS = [
@@ -70,7 +70,17 @@ DOCS = [
         "deck": "Week 1 is capture and the sheet. Nothing else. The rest waits.",
         "footer": "First two weeks, step by step",
         "breaks": [],
-        "notes": 11,
+        "notes": 10,
+    },
+    {
+        "key": "10",
+        "src": DOCS_DIR / "10-scenarios.md",
+        "out": "10-scenarios",
+        "kicker": "Organizational notes · Tutorial 10",
+        "deck": "Six situations from one week. Read the card before the day it belongs to, not all six on Sunday.",
+        "footer": "Six scenes, one week",
+        "breaks": ["2 ·", "4 ·", "6 ·"],
+        "notes": 0,
     },
 ]
 

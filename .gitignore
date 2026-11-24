@@ -29,6 +29,9 @@ desktop.ini
 .idea/
 .opencode/
 
+# --- Video (source is tracked, renders are not) ---
+video/out/
+
 # --- Personal ---
 WIP.md
 learning/*

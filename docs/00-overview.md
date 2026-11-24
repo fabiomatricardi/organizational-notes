@@ -1,4 +1,4 @@
-# 00 — Overview: why three registers
+# 00 — Overview: why four artefacts
 
 **Audience:** Fabio, and anyone who has to run this system in his absence.
 **Last updated:** 2026-11-20.
@@ -28,9 +28,9 @@ Separate the jobs and each one becomes cheap.
 | Artefact | Its only job | Lives | Refreshed |
 |---|---|---|---|
 | iPhone → Telegram inbox | catch anything in 5 seconds | pocket | never organised on the phone |
-| **A4 OPEN sheet** | what is open, and who owes what | desk, always visible | rewritten Monday; updated in pencil daily |
-| **A4 kick-off grid** | who said what, and who stayed silent | barge, one per working day | daily, 07:00 |
-| A5 notebook + the app | history, evidence, report material | desk / laptop | daily 20 min; Friday 15 min |
+| **OPEN sheet** | what is open, and who owes what | desk, always visible | rewritten Monday; updated in pencil daily |
+| **Kick-off grid** | who said what, and who stayed silent | barge, one per working day | 07:20, from a pre-dated stack |
+| **Notebook** + the app | appointments, decisions, the day's record | desk / laptop | 3 min at 16:30; Friday 15 min |
 
 The OPEN sheet is the heart of it: **the only page you ever read**. Daily pages are history; the sheet is the present. This is what kills "my notes are spread across several pages".
 
@@ -40,8 +40,8 @@ The kick-off grid is not a fourth register — it is the daily intake for the pe
 
 ```
 MON 07:25  new OPEN sheet: 3 targets, per-lead goals, Thu + Fri anchors
-    daily  photo board → grid → 5 min onto the sheet → Telegram during the day
-           → 5 min at lunch → 20 min at 16:30 (register + nudges)
+    daily  photo board → Kick-off grid → 5 min onto the OPEN sheet → Telegram during the day
+           → 5 min at lunch → 10–20 min at 16:30 (register, Notebook, nudges)
 WED 16:30  SHI waiting list into Thursday's agenda
 THU        SHI alignment; capture decisions before leaving the room
 FRI 13:00  close the week, generate the report, 14:00 meeting
@@ -77,11 +77,12 @@ Everything else in the app (kanban, tags, compaction, chat) is optional.
 
 ## Reading order
 
-1. [`01-method.md`](01-method.md) — the daily and weekly routine.
-2. [`02-legend-and-examples.md`](02-legend-and-examples.md) — the marks, with real boards rewritten.
-3. [`03-first-two-weeks.md`](03-first-two-weeks.md) — setup and rollout.
-4. [`04-app-guide.md`](04-app-guide.md) — the screens.
-5. [`09-scaling-to-100.md`](09-scaling-to-100.md) — what changes at 100 people.
+1. [`10-scenarios.md`](10-scenarios.md) — six situations, one per working day; read one before the day.
+2. [`01-method.md`](01-method.md) — the daily and weekly routine.
+3. [`02-legend-and-examples.md`](02-legend-and-examples.md) — the marks, with real boards rewritten.
+4. [`03-first-two-weeks.md`](03-first-two-weeks.md) — setup and rollout.
+5. [`04-app-guide.md`](04-app-guide.md) — the screens.
+6. [`09-scaling-to-100.md`](09-scaling-to-100.md) — what changes at 100 people.
 
 ## Glossary
 
@@ -93,5 +94,5 @@ Everything else in the app (kanban, tags, compaction, chat) is optional.
 | **Stale** | Past its next-check date, or older than 7 days with no next check. |
 | **Orphan** | Open item with no owner. Always a defect. |
 | **Waiting (`?`)** | Blocked on someone or something; listed before the Thursday SHI meeting. |
-| **Kick-off grid** | The A4 printed at 07:00, one line per person. |
+| **Kick-off grid** | The pre-dated A4 page, one per working day, one line per person. |
 | **Anchor** | A fixed weekly commitment (Thursday SHI, Friday 14:00 report). |

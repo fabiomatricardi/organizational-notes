@@ -30,6 +30,18 @@ This is the whole calendar question. Four kinds of dated thing, four places — 
 
 Consequence: you do not need a separate calendar. The week's fixed points live in `TODAY'S 3` on five pre-dated **Kick-off grids**, and the week's obligations live in the **OPEN sheet**'s DUE column, read every morning.
 
+### Where ideas go
+
+An idea has **no date and no owner**. It is neither a commitment nor a target, so it must never enter the **OPEN sheet**'s DUE column — an undated line there is a lie with a date on it.
+
+Ideas live on the **back pages of the Notebook**, dated, one line each: `24.11 IDEA 5S campaign, ECC room`. On **Friday 13:00** every idea gets exactly one fate:
+
+1. struck out — it died;
+2. promoted to `→` on the **OPEN sheet**, with a date — it became work;
+3. moved to [`ROADMAP.md`](../ROADMAP.md) — it belongs to the system, not the ship.
+
+Without that triage the ideas page becomes a graveyard, which is why the Friday step is part of the rule rather than an optional tidy-up.
+
 ---
 
 ## The grammar
@@ -102,7 +114,7 @@ Do not add 1:1s to a calendar that has no room. **Pair every site walk with one 
 
 ---
 
-## Ten rules
+## Eleven rules
 
 1. Never organise on the phone. Dump, don't sort.
 2. One line, one thing. Two owners in one line means it dies.
@@ -114,6 +126,7 @@ Do not add 1:1s to a calendar that has no room. **Pair every site walk with one 
 8. **A target change is struck through, never reworded silently.** Draw the line through the old target, write the new one beside it, with the date and the reason: `3 AIR LWN ready & signed · 23.11 pm, power-up off (conditions)`. Friday then explains itself.
 9. **One canonical name per person, printed not handwritten.** The same spelling on every **Kick-off grid** and on the **OPEN sheet**. Two initials for every surname that repeats (HJ Lee, JH Lee, Chor Lee, Seong Lee). Vendors are owners, never rows.
 10. **The OPEN sheet follows the week, not the Monday morning.** If Tuesday's subject changes, Tuesday's rows change. A register that only knows what was true on Monday is a snapshot, not a register.
+11. **An idea has no date and no owner, so it never touches the OPEN sheet.** It waits on the ideas page at the back of the **Notebook** until Friday makes it work, system, or dead.
 
 ---
 

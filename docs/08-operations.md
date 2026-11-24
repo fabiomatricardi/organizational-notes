@@ -83,6 +83,29 @@ One command produces the week's paper, pre-dated, with the names already printed
 - `TODAY'S 3` is left blank on purpose: write the day's fixed points on the printed page, then complete it at the kick-off. That box is the calendar.
 - The blank templates (`03-OPEN-SHEET-A4.pdf`, `04-KICKOFF-GRID-A4.pdf`) are generated from the same HTML with an empty name list; regenerate them with Edge if you edit the templates by hand.
 
+## Build the tutorial (cards and video)
+
+The written tutorial is [`10-scenarios.md`](10-scenarios.md) — six situations from one week. It is built with the other print editions:
+
+```powershell
+.venv\Scripts\python.exe tools\build_print.py --only 10
+```
+
+The video is the same six scenes, silent, 16:9, about three minutes:
+
+```powershell
+cd video
+npm.cmd install
+npm.cmd run render      # -> video/out/tutorial.mp4
+npm.cmd run studio      # live editor, to change timing
+```
+
+- **Content lives in `video/src/script.ts`.** Edit words there, not in `video/src/Video.tsx`; this is the same split as `PEOPLE` inside `tools/build_week_pack.py`.
+- Scene durations derive from the number of steps, so adding a step adds time instead of desynchronising the picture.
+- **Rendering uses the installed Chrome, not Remotion's download.** The corporate TLS proxy breaks the browser download (`unable to get local issuer certificate`); the npm scripts already pass `--browser-executable`.
+- `video/out/` is gitignored. Publish the MP4 as a release asset or copy it to a stick; do not commit it.
+- Fonts are Arial with a `Segoe UI Symbol` fallback, needed for `⇒`, `✓`, `✗`. After any font change, render one still before the full video.
+
 ## Configuration
 
 `config.json` — copied from `config.example.json`, never committed.
