@@ -53,7 +53,7 @@ MONDAY = date(2026, 11, 30)
 # owners on the OPEN sheet, never as rows here.
 PEOPLE = [
     ("HJ Lee", "LQ/IA"),
-    ("JH Lee", ""),
+    ("JH Lee", "Helper"),
     ("YZ", "ICSS"),
     ("Khang", "Mat+PTW"),
     ("Chang", "FIR"),
