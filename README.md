@@ -30,7 +30,7 @@ Marks: `•` fact · `→` my action · `⇒` their action + name + date · `?` 
 ## Quick start
 
 1. Read [`docs/00-overview.md`](docs/00-overview.md) and [`docs/01-method.md`](docs/01-method.md).
-2. Print `templates/03-OPEN-SHEET-A4.pdf` (A4 landscape) and 25 × `templates/04-KICKOFF-GRID-A4.pdf` (A4 portrait). The `.html` versions let you type the team names once.
+2. Build the week: `.venv\Scripts\python.exe tools\build_week_pack.py` — one **OPEN sheet** (A4 landscape) and **five pre-dated Kick-off grids** (A4 portrait), names already printed. The `.html` versions let you change the team list once.
 3. Start the app: `run-dev.bat` (dev) or `run-build.bat` then `run-prod.bat` (`.exe`). It opens on `http://localhost:8855`.
 4. Set the Telegram bot token in **Settings → Telegram Capture** — see [`docs/07-telegram-setup.md`](docs/07-telegram-setup.md).
 5. Follow week 1 of [`docs/03-first-two-weeks.md`](docs/03-first-two-weeks.md). Do not skip to week 2.
@@ -56,7 +56,7 @@ Marks: `•` fact · `→` my action · `⇒` their action + name + date · `?` 
 backend/              FastAPI + SQLite (routers, services, schema, Telegram poller)
 frontend/             Vue 3 + Vite (views, API client, styles)
 data/                 runtime data: personal_log.db, backups/, conversations/, inbox/ (gitignored)
-templates/            printable A4 sheets (html + pdf)
+templates/            printable A4 sheets (html + pdf, plus the weekly pack)
 reference/            personal_log.sample.db — a 302-entry sample, no live data
 docs/                 the method, the app, the architecture, the operations manual
 config.json           local config incl. API keys and bot token (gitignored)

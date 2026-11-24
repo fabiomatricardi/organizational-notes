@@ -36,7 +36,7 @@ EDGE_CANDIDATES = [
     Path(r"C:\Program Files\Microsoft\Edge\Application\msedge.exe"),
 ]
 
-VERSION = "1.2"
+VERSION = "1.3"
 TODAY = date.today().isoformat()
 
 DOCS = [
@@ -70,7 +70,7 @@ DOCS = [
         "deck": "Week 1 is capture and the sheet. Nothing else. The rest waits.",
         "footer": "First two weeks, step by step",
         "breaks": [],
-        "notes": 15,
+        "notes": 11,
     },
 ]
 

@@ -1,26 +1,25 @@
 # How it works
 
-## Three sheets, three questions
+## Four artefacts, four questions
 
-| Sheet | The only question it answers | When |
+| Artefact | The only question it answers | When |
 |---|---|---|
 | **Whiteboard photo** | What did we agree this morning? | 07:20, 10 seconds |
-| **Kick-off grid**, one per day | Who did I actually hear from today? | 07:20, 2 minutes |
+| **Kick-off grid**, one per working day | Who did I actually hear from today? | 07:20, 2 minutes |
 | **OPEN sheet**, one per week | What is open, and who owes it? | all week, in pencil |
-
-The notebook stays closed. The app stays closed until the OPEN sheet has been true for a full week.
+| **Notebook**, one page per day | What did I decide, and what is fixed today? | 3 minutes, 16:30 |
 
 ## The week is a loop
 
-1. **Monday 07:25, 10 minutes.** New OPEN sheet: the week's 3 targets, the two anchors, and only the lines still open.
-2. **Every morning 07:20, 2 minutes.** Photograph the board. Beside each name on the grid, one line: what is new. No line means nothing new.
+1. **Sunday or Monday, 10 minutes.** Print the week: one OPEN sheet, five pre-dated Kick-off grids. Then the week's 3 targets — each with a date — and only the lines still open.
+2. **Every morning 07:20, 2 minutes.** Photograph the board. On today's dated page, beside each name, one line: what is new. No line means nothing new. **TODAY'S 3** is already there for anything fixed.
 3. **Whenever someone owes you something, one new row.** What, who, when. Thirty seconds, immediately, never later.
-4. **When it closes, tick it.** The same day, on the same page.
-5. **Friday 13:00, 10 minutes.** Tick what closed, write the carry lines, write the report from the sheet, not from memory.
+4. **When it closes, tick it.** The same day, on the same page. Decisions go on the Notebook page.
+5. **Friday 13:00, 10 minutes.** Tick what closed, write the carry lines, write the report from the OPEN sheet, not from memory.
 
 ## What goes on the OPEN sheet
 
-**No date, no commitment.** It is a note, and notes go in the notebook. The columns are the grammar: a name in WHO and a date in DUE is enough.
+**No date, no commitment.** It is a note, and notes go on the Notebook page. The columns are the grammar: a name in WHO and a date in DUE is enough.
 
 > `✓` closed · `?` waiting on them · `!` risk
 
@@ -30,15 +29,15 @@ The notebook stays closed. The app stays closed until the OPEN sheet has been tr
 
 All three come from one mix-up: **“only what is new” belongs to the kick-off grid, not the OPEN sheet.** The OPEN sheet is cumulative — nothing on it is ever “only new”.
 
-### Do pending grid lines move to tomorrow's grid?
+### Do pending lines move to tomorrow's Kick-off grid?
 
-**No. A line never moves from one grid to another.** Tomorrow's grid starts empty.
+**No. A line never moves from one Kick-off grid to another.** Tomorrow's starts empty.
 
-The grid is a snapshot of one morning: who I spoke to, and what they told me that the whiteboard does not show. Copying pending lines forward every day rebuilds the multi-page list this method exists to kill. The line goes elsewhere — the grid is the doorway, the OPEN sheet is the room:
+The Kick-off grid is a snapshot of one morning: who I spoke to, and what they told me that the whiteboard does not show. Copying pending lines forward every day rebuilds the multi-page list this method exists to kill. The line goes elsewhere — the Kick-off grid is the doorway, the OPEN sheet is the room:
 
 - **A commitment** — a name, a thing, a date — goes on the OPEN sheet and stays until it closes.
-- **A fact** — “ECC room walkdown done” — dies with the grid.
-- **No date** means it is a note, and notes go in the notebook.
+- **A fact** — “ECC room walkdown done” — dies with the Kick-off grid.
+- **No date** means it is a note, and notes go in the Notebook.
 
 ### Where does “only what is new” apply?
 
@@ -48,9 +47,9 @@ The grid is a snapshot of one morning: who I spoke to, and what they told me tha
 | When did I last talk to them? | OPEN sheet, LAST TALK | just the date |
 | What is still open, and who owes it? | OPEN sheet, commitments | everything open |
 
-A blank grid row and today's LAST TALK can coexist: nothing new was said, but you did talk. Blank means no new information, not no work in progress.
+A blank Kick-off grid row and today's LAST TALK can coexist: nothing new was said, but you did talk. Blank means no new information, not no work in progress.
 
-It is **not** a discussion item for the next whiteboard meeting. The order is fixed: meeting, photograph, grid, then the OPEN sheet. The grid is a private record, never an agenda.
+It is **not** a discussion item for the next whiteboard meeting. The order is fixed: meeting, photograph, Kick-off grid, then the OPEN sheet. It is a private record, never an agenda.
 
 ### What moves from the kick-off to the OPEN sheet?
 
@@ -64,15 +63,15 @@ Three kinds of line, moved once, the same morning:
 
 ### Worked example
 
-Monday grid: `Chang ? PTW for FIR`.
+Monday Kick-off grid: `Chang ? PTW for FIR`.
 
 - **Monday** — a commitment with no date: OPEN sheet row, WHO `Chang`, DUE `23.11`.
-- **Tuesday, nothing new** — grid row blank, OPEN sheet unchanged, LAST TALK `24.11`.
-- **Tuesday, “issued at 14:00”** — grid `✓ PTW issued`, tick the OPEN sheet. Gone from both.
-- **Tuesday, “delayed, vendor form missing”** — grid `⇒ Chang: resubmit 25.11`; the OPEN sheet date becomes `25.11`, and `!` if it threatens the power-up.
+- **Tuesday, nothing new** — Kick-off grid row blank, OPEN sheet unchanged, LAST TALK `24.11`.
+- **Tuesday, “issued at 14:00”** — Kick-off grid `✓ PTW issued`, tick the OPEN sheet. Gone from both.
+- **Tuesday, “delayed, vendor form missing”** — Kick-off grid `⇒ Chang: resubmit 25.11`; the OPEN sheet date becomes `25.11`, and `!` if it threatens the power-up.
 
 ### The three rules
 
-1. The grid is written once per day. It never carries forward.
+1. The Kick-off grid is written once per day. It never carries forward.
 2. The OPEN sheet is the only page that survives the day.
 3. “New” never means “important” — it means “I did not know this yesterday”.

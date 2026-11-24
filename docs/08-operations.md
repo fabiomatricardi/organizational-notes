@@ -67,6 +67,22 @@ The two reference documents have a print pipeline (no external dependencies):
 - PDF is produced by Microsoft Edge in headless mode (`--print-to-pdf`). If Edge is busy or hangs, the script retries once with a fresh profile; close stray headless Edge processes if it still fails.
 - Page breaks are tuned per document in the `DOCS` list (`breaks`, `notes`). If you change the Markdown, re-render and check the last page: a notes block that no longer fits will move to its own page.
 
+## Build the weekly paper pack
+
+One command produces the week's paper, pre-dated, with the names already printed:
+
+```powershell
+.venv\Scripts\python.exe tools\build_week_pack.py
+.venv\Scripts\python.exe tools\build_week_pack.py --week 50 --monday 2026-12-07
+```
+
+- Output: `templates/03-OPEN-SHEET-A4-wk<NN>.pdf` (1 page, landscape) and `templates/04-KICKOFF-GRID-A4-wk<NN>.pdf` (5 pages, portrait, Monday–Friday).
+- The team list lives in `PEOPLE` at the top of the script: `("Name", "Area")`, one canonical spelling per person. Vendors are owners, never rows.
+- The date, day name and week number come from `--monday`; it must be a Monday.
+- `--no-pdf` writes the HTML only.
+- `TODAY'S 3` is left blank on purpose: write the day's fixed points on the printed page, then complete it at the kick-off. That box is the calendar.
+- The blank templates (`03-OPEN-SHEET-A4.pdf`, `04-KICKOFF-GRID-A4.pdf`) are generated from the same HTML with an empty name list; regenerate them with Edge if you edit the templates by hand.
+
 ## Configuration
 
 `config.json` — copied from `config.example.json`, never committed.

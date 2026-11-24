@@ -2,6 +2,22 @@
 
 All notable changes to this project. Dates are local (KST).
 
+## [1.3.0] — 2026-11-24
+
+### Added
+- `tools/build_week_pack.py` — one command builds the week's paper: one **OPEN sheet** and **five pre-dated Kick-off grids**, with the names already printed. Output `templates/03-OPEN-SHEET-A4-wk<NN>.pdf` and `templates/04-KICKOFF-GRID-A4-wk<NN>.pdf`.
+- `docs/01-method.md`: **Where each dated thing goes** (target / appointment / commitment / note) and **The five daily pages** — the pre-dated stack, and `TODAY'S 3` as the calendar.
+- The first pack, week 49: `templates/03-OPEN-SHEET-A4-wk49.pdf`, `templates/04-KICKOFF-GRID-A4-wk49.pdf`.
+
+### Changed
+- `docs/01-method.md` now describes **four artefacts**: the Kick-off grid, the OPEN sheet, the Notebook and the phone inbox. The Notebook has a job again — appointments, decisions, the day's record, three lines at 16:30.
+- Seven rules → **ten**: target changes are struck through with date and reason; one canonical name per person, printed not handwritten; the OPEN sheet follows the week, not the Monday morning.
+- `WHAT THEY NEED FROM ME` is now documented as the debt list — ask it as *"what am I blocking?"*.
+- OPEN sheet template: the ANCHORS block is now **Fixed this week** — four free lines plus the standing THU SHI / FRI 14:00 anchors.
+- `docs/00-how-it-works.md` pin sheet updated to four artefacts and the pre-dated week. Still two A4 pages.
+- `docs/03-first-two-weeks.md` and `docs/08-operations.md` describe the weekly pack instead of printing sheets one at a time.
+- `learning/README.md` indexes all seven artefacts; `20261123_OPEN_sheet.jpg` renamed to `20261123_open_sheet.jpg`.
+
 ## [1.2.0] — 2026-11-23
 
 ### Added

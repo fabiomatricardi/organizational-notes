@@ -15,16 +15,18 @@
     display: flex; flex-direction: column;
   }
   header {
-    display: grid; grid-template-columns: 0.85fr 1.35fr 0.95fr; gap: 6mm;
+    display: grid; grid-template-columns: 0.85fr 1.25fr 1.05fr; gap: 6mm;
     border-bottom: 0.6mm solid #000; padding-bottom: 2mm;
   }
   .cap { font-size: 6.4pt; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
   .sub { font-weight: 400; letter-spacing: .02em; text-transform: none; font-size: 7pt; color: #333; }
   .u { display: inline-block; border-bottom: 0.25mm solid #666; height: 4.6mm; vertical-align: bottom; }
   .grow { flex: 1; }
-  .tline, .aline { display: flex; align-items: flex-end; gap: 2mm; height: 5.4mm; font-size: 7.4pt; }
+  .tline, .aline { display: flex; align-items: flex-end; gap: 2mm; height: 5mm; font-size: 7.4pt; }
   .tline .n { font-weight: 700; width: 3.5mm; font-size: 7.4pt; }
   .aline b { font-size: 6.6pt; letter-spacing: .06em; width: 9mm; }
+  .standing { font-size: 5.9pt; color: #444; letter-spacing: .02em; margin: 1.2mm 0 .4mm; }
+  .pre { font-size: 10pt; font-weight: 700; letter-spacing: .02em; padding: 0 1mm; }
   .lbl { font-size: 6pt; letter-spacing: .07em; font-weight: 700; }
   .sl { font-size: 7pt; padding: 0 .8mm; }
 
@@ -95,7 +97,7 @@
     </div>
     <div class="note">
       Pasting "Name, Area" also fills the role column. Names are saved in this browser;
-      printing keeps them, so next Monday is one click.
+      printing keeps them, so next Monday is one click. Weekly pack: <b>tools/build_week_pack.py</b>.
     </div>
   </details>
 </div>
@@ -124,9 +126,12 @@
     </div>
 
     <div>
-      <div class="cap">Anchors</div>
-      <div class="aline"><b>THU</b>SHI align.<span class="u grow"></span></div>
-      <div class="aline"><b>FRI</b>14:00 Thierry<span class="u grow"></span></div>
+      <div class="cap">Fixed this week</div>
+      <div class="aline"><span class="u" style="width:9mm"></span><span class="u grow"></span></div>
+      <div class="aline"><span class="u" style="width:9mm"></span><span class="u grow"></span></div>
+      <div class="aline"><span class="u" style="width:9mm"></span><span class="u grow"></span></div>
+      <div class="aline"><span class="u" style="width:9mm"></span><span class="u grow"></span></div>
+      <div class="standing">standing · THU SHI align · FRI 14:00 Thierry</div>
       <div class="aline"><b>TEAM</b><span class="u" style="width:10mm"></span>people&nbsp;&nbsp;<span class="u" style="width:9mm"></span>hiring</div>
     </div>
   </header>
