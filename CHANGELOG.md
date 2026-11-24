@@ -2,6 +2,18 @@
 
 All notable changes to this project. Dates are local (KST).
 
+## [1.4.1] — 2026-11-25
+
+### Added
+- **Narration.** Microsoft Edge TTS, voice `en-US-BrianNeural`, one clip per beat (35 clips, 0.8 MB) in `video/public/audio/`.
+- `video/src/narration.json` — the spoken script, separate from the on-screen text.
+- `video/tools/build_audio.py` — regenerates the clips and fails when a line would overlap the next beat.
+
+### Changed
+- The video is narrated, not silent: now about 3:27. Scene tails were extended to fit the closing line of each scene.
+- `docs/10-scenarios.md`, `docs/08-operations.md` and `video/README.md` no longer describe the video as silent; the audio build is documented.
+- `video/package.json` gains `npm.cmd run audio`.
+
 ## [1.4.0] — 2026-11-24
 
 ### Added

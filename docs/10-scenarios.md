@@ -125,4 +125,4 @@
 
 The **OPEN sheet** is the only page you read. If it is true on Friday, the week was captured. If it is not, no report format will save it.
 
-**The video** is these six scenes, silent, five minutes, watched once. **The rules** behind them are in [`01-method.md`](01-method.md) — read them when a scene does not cover your case.
+**The video** is these six scenes, narrated, three and a half minutes, watched once. **The rules** behind them are in [`01-method.md`](01-method.md) — read them when a scene does not cover your case.

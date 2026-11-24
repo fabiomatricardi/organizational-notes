@@ -37,7 +37,7 @@ export const TIMING = {
   stepGap: sec(5),
   notThisGap: sec(2),
   landsGap: sec(3.2),
-  tail: sec(2),
+  tail: sec(4.6),
 };
 
 export const stepAt = (i: number) => TIMING.firstStep + i * TIMING.stepGap;

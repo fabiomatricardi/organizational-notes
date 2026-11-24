@@ -1,0 +1,64 @@
+{
+  "voice": "en-US-BrianNeural",
+  "intro": "Six scenes, one week: how to run the paper system.",
+  "outro": "The kick-off grid is what they said. The open sheet is what they owe. The notebook is what happened.",
+  "scenes": {
+    "monday": {
+      "lead": "Monday, six fifty-five. The week is already printed.",
+      "steps": [
+        "Take the pack from Sunday: one open sheet, five dated grids.",
+        "Write the week's three targets, each with a date.",
+        "Put the fixed points in today's three. That is your calendar.",
+        "Stop at ten minutes."
+      ],
+      "lands": "Targets on the open sheet. Appointments in today's three."
+    },
+    "ptw": {
+      "lead": "Seven twenty. Khang says the FIR permit is still not issued.",
+      "steps": [
+        "One line on today's grid, beside his name.",
+        "Before the walkdown, one row on the open sheet. You set the date.",
+        "On the power-up path? Add the flag, and circle the date."
+      ],
+      "lands": "The grid is what he said. The sheet is what he owes."
+    },
+    "idea": {
+      "lead": "Ten forty. An idea arrives in the corridor.",
+      "steps": [
+        "Write it on the back page of the notebook. Dated, one line.",
+        "It does not touch the open sheet.",
+        "On Friday it dies, becomes a dated action, or joins the roadmap."
+      ],
+      "lands": "No date, no owner. So it waits."
+    },
+    "target": {
+      "lead": "One ten. The third target moves.",
+      "steps": [
+        "Strike through the old target. Do not reword it quietly.",
+        "Write the new outcome beside it, with the date and the reason.",
+        "One line on the notebook: the decision, and who took it.",
+        "Update the rows that depended on that date."
+      ],
+      "lands": "The sheet keeps both versions. Friday explains itself."
+    },
+    "three": {
+      "lead": "Four thirty. Three lines, not an essay.",
+      "steps": [
+        "Done, moved, blocked. One line each, on the notebook.",
+        "Tomorrow's appointments into tomorrow's today's three.",
+        "Send the nudges due today, before the laptop closes."
+      ],
+      "lands": "Three lines now. A report on Friday."
+    },
+    "friday": {
+      "lead": "Friday, one o'clock. Thierry at two.",
+      "steps": [
+        "Tick what closed. Mark what did not. Read the struck targets.",
+        "Three lines from the week: done, blocked, risk.",
+        "Assemble the report. Fifteen minutes.",
+        "Then close the laptop. The meeting is not a reconstruction."
+      ],
+      "lands": "The report is a by-product, not an excavation."
+    }
+  }
+}

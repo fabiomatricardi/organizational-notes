@@ -1,5 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
-import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Audio, Sequence, interpolate, staticFile, useCurrentFrame } from "remotion";
 import { C, FONT } from "./theme";
 import {
   FPS,
@@ -675,6 +675,22 @@ const SceneView = ({ scene }: { scene: Scene }) => {
 
   return (
     <AbsoluteFill style={{ backgroundColor: C.desk, fontFamily: FONT, color: C.ink }}>
+      <Sequence from={6}>
+        <Audio src={staticFile(`audio/${scene.id}-lead.mp3`)} />
+      </Sequence>
+      {scene.steps.map((_, i) => (
+        <Sequence key={i} from={stepAt(i)}>
+          <Audio
+            src={staticFile(
+              `audio/${scene.id}-step-${String(i + 1).padStart(2, "0")}.mp3`,
+            )}
+          />
+        </Sequence>
+      ))}
+      <Sequence from={landsAt}>
+        <Audio src={staticFile(`audio/${scene.id}-lands.mp3`)} />
+      </Sequence>
+
       <div
         style={{
           position: "absolute",
@@ -822,6 +838,9 @@ const Intro = () => {
         justifyContent: "center",
       }}
     >
+      <Sequence from={8}>
+        <Audio src={staticFile("audio/intro.mp3")} />
+      </Sequence>
       <div style={{ fontSize: 18, letterSpacing: 4, color: C.grey, ...rise(f, 0, 12) }}>
         ORGANIZATIONAL NOTES · TUTORIAL
       </div>
@@ -829,7 +848,7 @@ const Intro = () => {
         Six scenes, one week
       </div>
       <div style={{ fontSize: 30, color: C.body, marginTop: 24, maxWidth: 1100, ...rise(f, 24, 16) }}>
-        How to run the paper system, one situation at a time. Silent on purpose — the words are on the screen.
+        How to run the paper system, one situation at a time.
       </div>
       <div style={{ display: "flex", gap: 18, marginTop: 54, ...rise(f, 44, 16) }}>
         {["Kick-off grid", "OPEN sheet", "Notebook"].map((t) => (
@@ -857,6 +876,9 @@ const Outro = () => {
         justifyContent: "center",
       }}
     >
+      <Sequence from={10}>
+        <Audio src={staticFile("audio/outro.mp3")} />
+      </Sequence>
       <div style={{ fontSize: 18, letterSpacing: 4, color: C.grey, ...rise(f, 0, 12) }}>
         IF ONLY ONE THING SURVIVES
       </div>

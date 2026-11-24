@@ -32,7 +32,7 @@ Marks: `•` fact · `→` my action · `⇒` their action + name + date · `?` 
 ## Quick start
 
 1. Read [`docs/00-overview.md`](docs/00-overview.md) and [`docs/01-method.md`](docs/01-method.md).
-2. Watch the tutorial once ([`docs/print/10-scenarios.pdf`](docs/print/10-scenarios.pdf), or `video/out/tutorial.mp4`): six situations, three minutes. It is the method in the moments you will actually meet.
+2. Watch the tutorial once ([`docs/print/10-scenarios.pdf`](docs/print/10-scenarios.pdf), or `video/out/tutorial.mp4`): six situations, three and a half minutes. It is the method in the moments you will actually meet.
 3. Build the week: `.venv\Scripts\python.exe tools\build_week_pack.py` — one **OPEN sheet** (A4 landscape) and **five pre-dated Kick-off grids** (A4 portrait), names already printed. The `.html` versions let you change the team list once.
 4. Start the app: `run-dev.bat` (dev) or `run-build.bat` then `run-prod.bat` (`.exe`). It opens on `http://localhost:8855`.
 5. Set the Telegram bot token in **Settings → Telegram Capture** — see [`docs/07-telegram-setup.md`](docs/07-telegram-setup.md).

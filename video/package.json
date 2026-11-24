@@ -6,7 +6,8 @@
   "scripts": {
     "studio": "remotion studio src/index.ts --browser-executable=\"C:/Program Files/Google/Chrome/Application/chrome.exe\"",
     "render": "remotion render src/index.ts Tutorial out/tutorial.mp4 --codec=h264 --crf=18 --browser-executable=\"C:/Program Files/Google/Chrome/Application/chrome.exe\"",
-    "still": "remotion still src/index.ts Tutorial out/still.png --browser-executable=\"C:/Program Files/Google/Chrome/Application/chrome.exe\""
+    "still": "remotion still src/index.ts Tutorial out/still.png --browser-executable=\"C:/Program Files/Google/Chrome/Application/chrome.exe\"",
+    "audio": "python tools/build_audio.py"
   },
   "dependencies": {
     "@remotion/cli": "4.0.546",

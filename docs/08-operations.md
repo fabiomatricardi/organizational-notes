@@ -91,17 +91,21 @@ The written tutorial is [`10-scenarios.md`](10-scenarios.md) — six situations 
 .venv\Scripts\python.exe tools\build_print.py --only 10
 ```
 
-The video is the same six scenes, silent, 16:9, about three minutes:
+The video is the same six scenes, narrated, with one clip per beat:
 
 ```powershell
 cd video
 npm.cmd install
+npm.cmd run audio       # regenerate public/audio/*.mp3 (Edge TTS, en-US-BrianNeural)
 npm.cmd run render      # -> video/out/tutorial.mp4
 npm.cmd run studio      # live editor, to change timing
 ```
 
-- **Content lives in `video/src/script.ts`.** Edit words there, not in `video/src/Video.tsx`; this is the same split as `PEOPLE` inside `tools/build_week_pack.py`.
+- **Content lives in `video/src/script.ts`** (what is on screen) and **`video/src/narration.json`** (what is said). Edit those, not `video/src/Video.tsx`.
 - Scene durations derive from the number of steps, so adding a step adds time instead of desynchronising the picture.
+- `video/tools/build_audio.py` measures every clip against its beat and fails if a line would overlap the next one. Shorten the line, or widen `TIMING` in `script.ts`.
+- The 35 MP3s (0.8 MB) are committed, so a render works offline; re-run `npm.cmd run audio` only after changing the words.
+- No API key and no account: Edge TTS is the same Read Aloud service the Edge browser uses. The script calls `uvx --from edge-tts`, and falls back to `python -m edge_tts` when uv is absent.
 - **Rendering uses the installed Chrome, not Remotion's download.** The corporate TLS proxy breaks the browser download (`unable to get local issuer certificate`); the npm scripts already pass `--browser-executable`.
 - `video/out/` is gitignored. Publish the MP4 as a release asset or copy it to a stick; do not commit it.
 - Fonts are Arial with a `Segoe UI Symbol` fallback, needed for `⇒`, `✓`, `✗`. After any font change, render one still before the full video.
