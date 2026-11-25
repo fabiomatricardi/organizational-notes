@@ -74,6 +74,17 @@ Non-negotiable convention: **TODO = mine, TASK = theirs.** `follow_up` always ho
 
 The Notebook's daily block is three lines, never an essay. Essays belong in the Friday report.
 
+### Erasing, and running out of lines
+
+The **OPEN sheet** is the present, so pencil and eraser are allowed — but not on everything:
+
+- **Erase** a mistake, a duplicate, or a line that was never a commitment.
+- **Tick `✓` and keep** a closure until Friday 13:00. The report is built from those ticks; erase closed lines at the Monday rewrite, or once the day is written on the **Notebook**.
+- **Never erase an open line** to make room, and never erase a target change — the strikethrough is the audit trail.
+- **Out of lines mid-week?** Erase the closed lines you have already registered, then continue. Still full of live lines? The page is telling you the granularity is wrong: one line per thing, one owner per line. Move the live lines to a fresh sheet; do not start a second page.
+
+Erasing a closure yesterday and needing it on Friday is the failure this prevents: tick first, erase later.
+
 ---
 
 ## The week (it already matches your rhythm)

@@ -2,6 +2,11 @@
 
 All notable changes to this project. Dates are local (KST).
 
+## [1.4.2] — 2026-11-25
+
+### Added
+- `docs/01-method.md`: **Erasing, and running out of lines** — what may be erased on the **OPEN sheet** (mistakes, duplicates, non-commitments, closures after Friday), what may not (open lines, target changes), and what to do when the page runs out mid-week.
+
 ## [1.4.1] — 2026-11-25
 
 ### Added
